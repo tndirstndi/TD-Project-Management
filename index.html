@@ -27,9 +27,50 @@ button,input,select{font:inherit}.app{max-width:1400px;margin:auto;padding:24px}
 .empty{text-align:center;padding:28px;color:var(--muted)}
 @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.calendar{grid-template-columns:repeat(7,minmax(80px,1fr));overflow:auto}.calendar-wrap{overflow:auto}.day{min-width:80px}}
 @media(max-width:600px){.app{padding:14px}.hero{padding:21px}.hero h1{font-size:24px}.grid{grid-template-columns:1fr 1fr}.form{grid-template-columns:1fr}.form .full{grid-column:auto}.panel{padding:14px}}
+
+/* Login */
+.login-overlay{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#0b1730,#12254a);display:flex;align-items:center;justify-content:center;padding:20px}
+.login-card{width:min(420px,100%);background:#fff;border-radius:22px;padding:32px;box-shadow:0 25px 70px rgba(0,0,0,.28)}
+.login-brand{text-align:center;margin-bottom:26px}
+.login-brand .icon{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,#2563eb,#06b6d4);display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;margin:0 auto 14px}
+.login-brand h1{margin:0;color:#0b1730;font-size:25px}
+.login-brand p{margin:7px 0 0;color:#6b7280;font-size:14px}
+.login-field{margin-bottom:16px}
+.login-field label{display:block;font-size:13px;font-weight:700;color:#172033;margin-bottom:7px}
+.login-field input{width:100%;padding:13px 14px;border:1px solid #dbe1ea;border-radius:11px;font:inherit;outline:none;transition:.2s}
+.login-field input:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.login-btn{width:100%;border:0;border-radius:11px;padding:13px;background:linear-gradient(135deg,#2563eb,#06b6d4);color:#fff;font-weight:800;font-size:15px;cursor:pointer}
+.login-btn:hover{filter:brightness(1.05)}
+.login-error{display:none;background:#fef2f2;color:#dc2626;border:1px solid #fecaca;border-radius:10px;padding:10px 12px;font-size:13px;margin-bottom:14px;text-align:center}
+.logout-btn{background:#fff;color:#ef4444;border:1px solid #fecaca;border-radius:9px;padding:8px 11px;font-weight:700;cursor:pointer}
+@media(max-width:600px){.login-card{padding:25px}}
+
 </style>
 </head>
 <body>
+
+<div id="loginOverlay" class="login-overlay">
+  <div class="login-card">
+    <div class="login-brand">
+      <div class="icon">📚</div>
+      <h1>Rekap Mengajar</h1>
+      <p>Silakan login untuk melanjutkan</p>
+    </div>
+    <form id="loginForm">
+      <div class="login-field">
+        <label for="loginUsername">Username</label>
+        <input id="loginUsername" type="text" autocomplete="username" placeholder="Masukkan username" required>
+      </div>
+      <div class="login-field">
+        <label for="loginPassword">Password</label>
+        <input id="loginPassword" type="password" autocomplete="current-password" placeholder="Masukkan password" required>
+      </div>
+      <div id="loginError" class="login-error">Username atau password salah.</div>
+      <button class="login-btn" type="submit">Masuk</button>
+    </form>
+  </div>
+</div>
+
 <div class="app" id="app">
 <section class="hero">
   <div style="position:relative;z-index:1">
@@ -108,6 +149,57 @@ button,input,select{font:inherit}.app{max-width:1400px;margin:auto;padding:24px}
 <div class="toast" id="toast"></div>
 
 <script>
+
+// Login gate
+(function(){
+  const USERNAME = "tndrstnd";
+  const PASSWORD = "trdr1417";
+  const overlay = document.getElementById("loginOverlay");
+  const form = document.getElementById("loginForm");
+  const error = document.getElementById("loginError");
+  const logoutBtn = document.getElementById("logoutBtn");
+
+  function setLoggedIn(value){
+    if(value){
+      sessionStorage.setItem("rekapMengajarLoggedIn","1");
+      overlay.style.display = "none";
+      document.body.classList.add("logged-in");
+    }else{
+      sessionStorage.removeItem("rekapMengajarLoggedIn");
+      overlay.style.display = "flex";
+      document.body.classList.remove("logged-in");
+    }
+  }
+
+  if(sessionStorage.getItem("rekapMengajarLoggedIn") === "1"){
+    setLoggedIn(true);
+  }else{
+    setLoggedIn(false);
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    const username = document.getElementById("loginUsername").value.trim();
+    const password = document.getElementById("loginPassword").value;
+    if(username === USERNAME && password === PASSWORD){
+      error.style.display = "none";
+      setLoggedIn(true);
+      form.reset();
+    }else{
+      error.style.display = "block";
+      document.getElementById("loginPassword").value = "";
+      document.getElementById("loginPassword").focus();
+    }
+  });
+
+  if(logoutBtn){
+    logoutBtn.addEventListener("click", function(){
+      setLoggedIn(false);
+      document.getElementById("loginUsername").focus();
+    });
+  }
+})();
+
 const INITIAL = [{"name": "SD Darul Hikam Dago", "day": "Selasa", "date": "2026-09-01", "honor": 50000, "transport": 25000}, {"name": "Jalu (HP)", "day": "", "date": "", "honor": 50000, "transport": 15000}, {"name": "Adriel (PC)", "day": "Kamis", "date": "2026-09-03", "honor": 50000, "transport": 0}, {"name": "Rama (PC)", "day": "", "date": "", "honor": 50000, "transport": 0}, {"name": "SD Insan Cermat", "day": "Jum'at", "date": "2026-09-04", "honor": 50000, "transport": 0}, {"name": "Arsyad (PC)", "day": "", "date": "", "honor": 50000, "transport": 0}, {"name": "SD Darul Hikam Dago", "day": "Selasa", "date": "2026-09-08", "honor": 50000, "transport": 25000}, {"name": "Jalu (HP)", "day": "", "date": "", "honor": 50000, "transport": 15000}, {"name": "TK Anak Ceria", "day": "Kamis", "date": "2026-09-09", "honor": 50000, "transport": 0}, {"name": "Adriel (PC)", "day": "", "date": "", "honor": 50000, "transport": 0}, {"name": "DC PG TK BPI", "day": "Senin", "date": "2026-09-14", "honor": 50000, "transport": 10000}, {"name": "SD Darul Hikam Dago", "day": "Selasa", "date": "2026-09-15", "honor": 50000, "transport": 15000}, {"name": "Jalu (HP)", "day": "", "date": "", "honor": 50000, "transport": 25000}, {"name": "Zaydan (PC)", "day": "Rabu", "date": "2026-09-16", "honor": 50000, "transport": 0}, {"name": "TK Anak Ceria", "day": "Kamis", "date": "2026-09-17", "honor": 50000, "transport": 0}, {"name": "Adriel (PC)", "day": "", "date": "", "honor": 50000, "transport": 0}, {"name": "SD Insan Cermat", "day": "Jum'at", "date": "2026-09-18", "honor": 50000, "transport": 15000}, {"name": "Piket & Private Center", "day": "Sabtu", "date": "2026-09-19", "honor": 100000, "transport": 0}, {"name": "DC PG TK BPI", "day": "Senin", "date": "2026-09-21", "honor": 50000, "transport": 10000}, {"name": "SD Darul Hikam Dago", "day": "Selasa", "date": "2026-09-22", "honor": 50000, "transport": 25000}, {"name": "Rama (PC)", "day": "", "date": "", "honor": 50000, "transport": 0}, {"name": "Jalu (HP)", "day": "", "date": "", "honor": 50000, "transport": 15000}, {"name": "Zaydan (PC)", "day": "Rabu", "date": "2026-09-23", "honor": 50000, "transport": 0}, {"name": "TK Anak Ceria", "day": "Kamis", "date": "2026-09-24", "honor": 50000, "transport": 0}, {"name": "Adriel (PC)", "day": "", "date": "", "honor": 50000, "transport": 0}, {"name": "SD Insan Cermat", "day": "Jum'at", "date": "2026-09-25", "honor": 50000, "transport": 15000}, {"name": "Expo Visit Darul Hikam Dago", "day": "Sabtu", "date": "2026-09-26", "honor": 100000, "transport": 25000}];
 const INITIAL_STUDENTS = [{"name": "Jalu", "program": "Private", "mode": "Home Private", "note": "HP"}, {"name": "Adriel", "program": "Private", "mode": "Private Center", "note": "PC"}, {"name": "Rama", "program": "Private", "mode": "Private Center", "note": "PC"}, {"name": "Arsyad", "program": "Private", "mode": "Private Center", "note": "PC"}, {"name": "Zaydan", "program": "Private", "mode": "Private Center", "note": "PC"}, {"name": "SD Darul Hikam Dago", "program": "Ekstrakurikuler", "mode": "Sekolah", "note": "Robotik"}, {"name": "SD Insan Cermat", "program": "Ekstrakurikuler", "mode": "Sekolah", "note": "Robotik"}, {"name": "TK Anak Ceria", "program": "Ekstrakurikuler", "mode": "Sekolah", "note": "Robotik"}, {"name": "DC PG TK BPI", "program": "Ekstrakurikuler", "mode": "Sekolah", "note": "Robotik"}, {"name": "Piket & Private Center", "program": "Center", "mode": "Center", "note": "Piket + private"}, {"name": "Expo Visit Darul Hikam Dago", "program": "Event", "mode": "Sekolah", "note": "Expo / visit"}];
 const KEY = "tendi-september-2026-v2";
