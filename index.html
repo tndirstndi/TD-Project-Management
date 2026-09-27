@@ -139,7 +139,13 @@ button,input,select{font:inherit}.app{max-width:1400px;margin:auto;padding:24px}
 </section>
 
 <section class="panel">
- <div class="section-head"><h2>👨‍🎓 Daftar Siswa & Kegiatan</h2><input id="studentSearch" placeholder="Cari siswa..." style="border:1px solid var(--line);border-radius:11px;padding:10px 12px"></div>
+ <div class="section-head">
+    <div>
+      <h2 style="margin-bottom:4px">👨‍🎓 Daftar Siswa & Kegiatan</h2>
+      <span style="font-size:12px;color:var(--muted)">Daftar otomatis berdasarkan jadwal pada akun ini.</span>
+    </div>
+    <input id="studentSearch" placeholder="Cari siswa..." style="border:1px solid var(--line);border-radius:11px;padding:10px 12px">
+  </div>
  <div class="table-wrap"><table class="table"><thead><tr><th>Nama</th><th>Program</th><th>Mode</th><th>Keterangan</th><th>Jumlah Sesi</th><th>Total Honor</th></tr></thead><tbody id="studentBody"></tbody></table></div>
 </section>
 </div>
@@ -192,7 +198,10 @@ function setAuthMode(m){
 function setLoggedIn(user){currentUser=user;loginOverlay.style.display="none";document.body.classList.add("logged-in");currentUserEmail.textContent=user?.email||"Akun"}
 function setLoggedOut(){
   currentUser=null;loginOverlay.style.display="flex";document.body.classList.remove("logged-in");currentUserEmail.textContent="Belum login";
-  if(realtimeChannel){db?.removeChannel(realtimeChannel);realtimeChannel=null} data=[];render();
+  if(realtimeChannel){db?.removeChannel(realtimeChannel);realtimeChannel=null}
+  data=[];
+  populateNameOptions();
+  render();
 }
 loginTab.onclick=()=>setAuthMode("login"); registerTab.onclick=()=>setAuthMode("register");
 
@@ -279,7 +288,10 @@ async function loadData(showStatus=true){
   const {data:rows,error}=await db.from("jadwal_mengajar").select("*").eq("user_id",currentUser.id)
     .order("tanggal",{ascending:true,nullsFirst:false}).order("created_at",{ascending:true});
   if(error){console.error(error);setDbStatus(`Gagal terhubung: ${error.message}`,"error");return}
-  data=(rows||[]).map(rowToItem);render();setDbStatus(`Terhubung ke Supabase • ${data.length} jadwal akun ini`,"ok");
+  data=(rows||[]).map(rowToItem);
+  populateNameOptions();
+  render();
+  setDbStatus(`Terhubung ke Supabase • ${data.length} jadwal akun ini`,"ok");
 }
 
 function setupRealtime(){
@@ -296,8 +308,16 @@ const rupiah=n=>new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",m
 const dateFmt=d=>d?new Intl.DateTimeFormat("id-ID",{day:"2-digit",month:"short"}).format(new Date(d+"T00:00:00")):"Fleksibel";
 const dayName=d=>d?new Intl.DateTimeFormat("id-ID",{weekday:"long"}).format(new Date(d+"T00:00:00")):"";
 const typeOf=n=>{
-  if(/Expo|Piket|Center/i.test(n)) return "event";
-  if(/\((HP|PC)\)/i.test(n)) return "private";
+  const name=String(n||"");
+  if(/Expo|Piket|Center/i.test(name)) return "event";
+  if(/\((HP|PC)\)/i.test(name)) return "private";
+
+  const base=INITIAL_STUDENTS.find(
+    x=>x.name.toLowerCase()===name.replace(/\s+\((HP|PC)\)$/i,"").toLowerCase()
+  );
+  if(base?.program?.toLowerCase().includes("private")) return "private";
+  if(base?.program?.toLowerCase().includes("event")) return "event";
+
   return "school";
 };
 const typeLabel=t=>({school:"Sekolah",private:"Private",event:"Event/Center"}[t]||t);
@@ -371,14 +391,68 @@ function renderChart(){
 }
 
 function renderStudents(){
- const q=document.getElementById("studentSearch").value.toLowerCase();
- const map={};
- data.forEach(x=>{const key=x.name.replace(/\s+\((HP|PC)\)$/i,""); if(!map[key])map[key]={sessions:0,honor:0};map[key].sessions++;map[key].honor+=Number(x.honor||0)});
- const base=INITIAL_STUDENTS.filter(x=>!q||x.name.toLowerCase().includes(q));
- document.getElementById("studentBody").innerHTML=base.map(s=>{
-  const m=map[s.name]||{sessions:0,honor:0};
-  return `<tr><td><b>${escapeHtml(s.name)}</b></td><td>${s.program}</td><td>${s.mode}</td><td>${s.note}</td><td>${m.sessions}</td><td class="money">${rupiah(m.honor)}</td></tr>`
- }).join("")||`<tr><td colspan="6" class="empty">Siswa tidak ditemukan.</td></tr>`;
+  const q=document.getElementById("studentSearch").value.toLowerCase().trim();
+  const map={};
+
+  // Daftar siswa/kegiatan dibuat berdasarkan data jadwal akun yang sedang login.
+  // Jadi setiap akun memiliki daftar yang berbeda sesuai jadwalnya sendiri.
+  data.forEach(x=>{
+    const name=(x.name||"").replace(/\s+\((HP|PC)\)$/i,"").trim();
+    if(!name) return;
+
+    if(!map[name]){
+      map[name]={
+        name:name,
+        sessions:0,
+        honor:0,
+        types:new Set(),
+        notes:new Set()
+      };
+    }
+
+    map[name].sessions++;
+    map[name].honor+=Number(x.honor||0);
+
+    const type=x.type||typeOf(x.name);
+    if(type) map[name].types.add(type);
+
+    if(x.note) map[name].notes.add(x.note);
+  });
+
+  const students=Object.values(map)
+    .filter(s=>!q||s.name.toLowerCase().includes(q))
+    .sort((a,b)=>a.name.localeCompare(b.name,"id"));
+
+  document.getElementById("studentBody").innerHTML=students.length
+    ? students.map(s=>{
+        const typeList=[...s.types].map(typeLabel).join(", ")||"-";
+        const noteList=[...s.notes].join(", ")||"-";
+
+        // Ambil informasi program/mode dari daftar awal jika tersedia.
+        const base=INITIAL_STUDENTS.find(
+          x=>x.name.toLowerCase()===s.name.toLowerCase()
+        );
+
+        const program=base?.program || (
+          s.types.has("private") ? "Private" :
+          s.types.has("event") ? "Event" :
+          "Kegiatan"
+        );
+
+        const mode=base?.mode || typeList;
+
+        return `<tr>
+          <td><b>${escapeHtml(s.name)}</b></td>
+          <td>${escapeHtml(program)}</td>
+          <td>${escapeHtml(mode)}</td>
+          <td>${escapeHtml(noteList)}</td>
+          <td>${s.sessions}</td>
+          <td class="money">${rupiah(s.honor)}</td>
+        </tr>`;
+      }).join("")
+    : `<tr><td colspan="6" class="empty">${
+        q ? "Siswa / kegiatan tidak ditemukan." : "Belum ada siswa atau kegiatan pada akun ini."
+      }</td></tr>`;
 }
 function render(){renderStats();renderCalendar();renderChart();renderTable();renderStudents()}
 
