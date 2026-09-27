@@ -149,7 +149,11 @@ button,input,select{font:inherit}.app{max-width:1400px;margin:auto;padding:24px}
   <div class="section-head"><h2 id="modalTitle">Tambah Jadwal</h2><button class="iconbtn" id="closeModal">✕</button></div>
   <form id="form">
    <div class="form">
-    <label>Nama siswa / kegiatan<input id="fName" required></label>
+    <label>Nama siswa / kegiatan
+       <select id="fName" required>
+         <option value="">— Pilih siswa / kegiatan —</option>
+       </select>
+     </label>
     <label>Tanggal<input id="fDate" type="date"></label>
     <label>Hari (otomatis)<input id="fDay" readonly placeholder="Otomatis dari tanggal"></label>
     <label>Tipe<select id="fType"><option value="school">Sekolah</option><option value="private">Private</option><option value="event">Event/Center</option></select></label>
@@ -378,15 +382,36 @@ function renderStudents(){
 }
 function render(){renderStats();renderCalendar();renderChart();renderTable();renderStudents()}
 
+function populateNameOptions(selected=""){
+  const select=document.getElementById("fName");
+  if(!select) return;
+
+  // Daftar siswa & kegiatan bawaan + nama yang sudah tersimpan
+  // agar data lama tetap dapat dipilih saat diedit.
+  const names=[...INITIAL_STUDENTS.map(x=>x.name), ...data.map(x=>x.name)]
+    .filter(Boolean);
+  const unique=[...new Set(names)];
+
+  select.innerHTML=`<option value="">— Pilih siswa / kegiatan —</option>`+
+    unique.map(name=>`<option value="${escapeHtml(name)}">${escapeHtml(name)}</option>`).join("");
+
+  select.value=selected || "";
+}
+
 function openModal(i=-1,date=""){
- editIndex=i;
- document.getElementById("modal").classList.add("open");
- document.getElementById("modalTitle").textContent=i<0?"Tambah Jadwal":"Edit Jadwal";
- const x=i<0?{name:"",date:date,day:dayName(date),honor:50000,transport:0}:{...data[i],day:data[i].date?dayName(data[i].date):""};
- document.getElementById("fName").value=x.name||"";document.getElementById("fDate").value=x.date||"";
- document.getElementById("fDay").value=x.day||"";document.getElementById("fType").value=x.type||typeOf(x.name);
- document.getElementById("fHonor").value=x.honor??50000;document.getElementById("fTransport").value=x.transport??0;document.getElementById("fNote").value=x.note||"";
- document.getElementById("fName").focus();
+  editIndex=i;
+  document.getElementById("modal").classList.add("open");
+  document.getElementById("modalTitle").textContent=i<0?"Tambah Jadwal":"Edit Jadwal";
+  const x=i<0?{name:"",date:date,day:dayName(date),honor:50000,transport:0}:{...data[i],day:data[i].date?dayName(data[i].date):""};
+
+  populateNameOptions(x.name||"");
+  document.getElementById("fDate").value=x.date||"";
+  document.getElementById("fDay").value=x.day||"";
+  document.getElementById("fType").value=x.type||typeOf(x.name);
+  document.getElementById("fHonor").value=x.honor??50000;
+  document.getElementById("fTransport").value=x.transport??0;
+  document.getElementById("fNote").value=x.note||"";
+  document.getElementById("fName").focus();
 }
 function closeModal(){document.getElementById("modal").classList.remove("open")}
 window.editItem=i=>openModal(i);
@@ -406,6 +431,11 @@ document.getElementById("addBtn").onclick=()=>openModal();
 document.getElementById("closeModal").onclick=closeModal;
 document.getElementById("cancelBtn").onclick=closeModal;
 document.getElementById("fDate").oninput=e=>document.getElementById("fDay").value=dayName(e.target.value);
+
+document.getElementById("fName").onchange=e=>{
+  const name=e.target.value;
+  if(name) document.getElementById("fType").value=typeOf(name);
+};
 document.getElementById("form").onsubmit=async e=>{
  e.preventDefault();
  const x={
@@ -460,6 +490,7 @@ document.getElementById("exportBtn").onclick=()=>{
  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`rekap-mengajar-tendi-${currentDate.getFullYear()}-${String(currentDate.getMonth()+1).padStart(2,"0")}.json`;a.click();URL.revokeObjectURL(a.href);
 };
 document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")closeModal()});
+populateNameOptions();
 render();
 if(supabaseReady){
   db.auth.getSession().then(async({data:{session}})=>{
