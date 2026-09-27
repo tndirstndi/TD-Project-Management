@@ -144,7 +144,10 @@ button,input,select{font:inherit}.app{max-width:1400px;margin:auto;padding:24px}
       <h2 style="margin-bottom:4px">👨‍🎓 Daftar Siswa & Kegiatan</h2>
       <span style="font-size:12px;color:var(--muted)">Daftar otomatis berdasarkan jadwal pada akun ini.</span>
     </div>
-    <input id="studentSearch" placeholder="Cari siswa..." style="border:1px solid var(--line);border-radius:11px;padding:10px 12px">
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <input id="studentSearch" placeholder="Cari siswa..." style="border:1px solid var(--line);border-radius:11px;padding:10px 12px">
+      <button class="btn primary" id="addStudentBtn" type="button">＋ Daftarkan Baru</button>
+    </div>
   </div>
  <div class="table-wrap"><table class="table"><thead><tr><th>Nama</th><th>Program</th><th>Mode</th><th>Keterangan</th><th>Jumlah Sesi</th><th>Total Honor</th></tr></thead><tbody id="studentBody"></tbody></table></div>
 </section>
@@ -170,6 +173,21 @@ button,input,select{font:inherit}.app{max-width:1400px;margin:auto;padding:24px}
    <div class="modal-actions"><button type="button" class="btn light" id="cancelBtn">Batal</button><button class="btn primary">Simpan Jadwal</button></div>
   </form>
  </div>
+</div>
+<div class="modal" id="studentModal">
+  <div class="modalbox">
+    <div class="section-head"><h2>Daftarkan Sekolah / Siswa Baru</h2><button class="iconbtn" id="closeStudentModal" type="button">✕</button></div>
+    <form id="studentForm">
+      <div class="form">
+        <label>Nama sekolah / siswa<input id="newStudentName" required placeholder="Contoh: Budi / SD Harapan"></label>
+        <label>Jenis<select id="newStudentType"><option value="student">Siswa</option><option value="school">Sekolah</option><option value="center">Center</option><option value="event">Kegiatan / Event</option></select></label>
+        <label>Program<input id="newStudentProgram" placeholder="Private / Ekstrakurikuler / Robotik"></label>
+        <label>Mode<input id="newStudentMode" placeholder="Home Private / Sekolah"></label>
+        <label class="full">Keterangan<input id="newStudentNote" placeholder="Opsional"></label>
+      </div>
+      <div class="modal-actions"><button type="button" class="btn light" id="cancelStudentBtn">Batal</button><button class="btn primary">Simpan Pendaftaran</button></div>
+    </form>
+  </div>
 </div>
 <div class="toast" id="toast"></div>
 
@@ -392,85 +410,33 @@ function renderChart(){
 
 function renderStudents(){
   const q=document.getElementById("studentSearch").value.toLowerCase().trim();
+  const registered=currentUser ? JSON.parse(localStorage.getItem(`rekap-mengajar-students-${currentUser.id}`)||"[]") : [];
   const map={};
 
-  // Daftar siswa/kegiatan dibuat berdasarkan data jadwal akun yang sedang login.
-  // Jadi setiap akun memiliki daftar yang berbeda sesuai jadwalnya sendiri.
-  data.forEach(x=>{
-    const name=(x.name||"").replace(/\s+\((HP|PC)\)$/i,"").trim();
-    if(!name) return;
-
-    if(!map[name]){
-      map[name]={
-        name:name,
-        sessions:0,
-        honor:0,
-        types:new Set(),
-        notes:new Set()
-      };
-    }
-
-    map[name].sessions++;
-    map[name].honor+=Number(x.honor||0);
-
-    const type=x.type||typeOf(x.name);
-    if(type) map[name].types.add(type);
-
-    if(x.note) map[name].notes.add(x.note);
+  registered.forEach(s=>{
+    map[s.name.toLowerCase()]={name:s.name,program:s.program||"Kegiatan",mode:s.mode||"-",note:s.note||"-",sessions:0,honor:0};
   });
 
-  const students=Object.values(map)
-    .filter(s=>!q||s.name.toLowerCase().includes(q))
+  data.forEach(x=>{
+    const name=(x.name||"").replace(/\s+\((HP|PC)\)$/i,"").trim();
+    if(!name)return;
+    const key=name.toLowerCase();
+    if(!map[key]) map[key]={name,program:"Kegiatan",mode:typeLabel(x.type||typeOf(x.name)),note:x.note||"-",sessions:0,honor:0};
+    map[key].sessions++;
+    map[key].honor+=Number(x.honor||0);
+    if(x.note) map[key].note=x.note;
+  });
+
+  const rows=Object.values(map).filter(x=>!q||x.name.toLowerCase().includes(q))
     .sort((a,b)=>a.name.localeCompare(b.name,"id"));
 
-  document.getElementById("studentBody").innerHTML=students.length
-    ? students.map(s=>{
-        const typeList=[...s.types].map(typeLabel).join(", ")||"-";
-        const noteList=[...s.notes].join(", ")||"-";
-
-        // Ambil informasi program/mode dari daftar awal jika tersedia.
-        const base=INITIAL_STUDENTS.find(
-          x=>x.name.toLowerCase()===s.name.toLowerCase()
-        );
-
-        const program=base?.program || (
-          s.types.has("private") ? "Private" :
-          s.types.has("event") ? "Event" :
-          "Kegiatan"
-        );
-
-        const mode=base?.mode || typeList;
-
-        return `<tr>
-          <td><b>${escapeHtml(s.name)}</b></td>
-          <td>${escapeHtml(program)}</td>
-          <td>${escapeHtml(mode)}</td>
-          <td>${escapeHtml(noteList)}</td>
-          <td>${s.sessions}</td>
-          <td class="money">${rupiah(s.honor)}</td>
-        </tr>`;
-      }).join("")
-    : `<tr><td colspan="6" class="empty">${
-        q ? "Siswa / kegiatan tidak ditemukan." : "Belum ada siswa atau kegiatan pada akun ini."
-      }</td></tr>`;
+  document.getElementById("studentBody").innerHTML=rows.length
+    ? rows.map(x=>`<tr><td><b>${escapeHtml(x.name)}</b></td><td>${escapeHtml(x.program)}</td><td>${escapeHtml(x.mode)}</td><td>${escapeHtml(x.note)}</td><td>${x.sessions}</td><td class="money">${rupiah(x.honor)}</td></tr>`).join("")
+    : `<tr><td colspan="6" class="empty">Belum ada siswa / sekolah.</td></tr>`;
 }
 function render(){renderStats();renderCalendar();renderChart();renderTable();renderStudents()}
 
-function populateNameOptions(selected=""){
-  const select=document.getElementById("fName");
-  if(!select) return;
-
-  // Daftar siswa & kegiatan bawaan + nama yang sudah tersimpan
-  // agar data lama tetap dapat dipilih saat diedit.
-  const names=[...INITIAL_STUDENTS.map(x=>x.name), ...data.map(x=>x.name)]
-    .filter(Boolean);
-  const unique=[...new Set(names)];
-
-  select.innerHTML=`<option value="">— Pilih siswa / kegiatan —</option>`+
-    unique.map(name=>`<option value="${escapeHtml(name)}">${escapeHtml(name)}</option>`).join("");
-
-  select.value=selected || "";
-}
+function populateNameOptions(selected=""){refreshNameOptions(selected)}
 
 function openModal(i=-1,date=""){
   editIndex=i;
@@ -501,6 +467,47 @@ window.deleteItem=async i=>{
   toast("Jadwal dihapus.");
 };
 
+function getRegisteredStudents(){
+  if(!currentUser)return [];
+  try{return JSON.parse(localStorage.getItem(`rekap-mengajar-students-${currentUser.id}`)||"[]")}catch(e){return []}
+}
+function saveRegisteredStudents(list){
+  if(currentUser)localStorage.setItem(`rekap-mengajar-students-${currentUser.id}`,JSON.stringify(list));
+}
+function refreshNameOptions(selected=""){
+  const el=document.getElementById("fName");
+  if(!el)return;
+  const names=[...getRegisteredStudents().map(x=>x.name),...INITIAL_STUDENTS.map(x=>x.name),...data.map(x=>x.name)];
+  const unique=[...new Set(names.filter(Boolean))];
+  el.innerHTML='<option value="">— Pilih siswa / kegiatan —</option>'+unique.map(x=>`<option value="${escapeHtml(x)}">${escapeHtml(x)}</option>`).join("");
+  el.value=selected;
+}
+document.getElementById("addStudentBtn").onclick=()=>{
+  if(!currentUser){toast("Silakan login terlebih dahulu.");return}
+  document.getElementById("studentForm").reset();
+  document.getElementById("studentModal").classList.add("open");
+  document.getElementById("newStudentName").focus();
+};
+document.getElementById("closeStudentModal").onclick=()=>document.getElementById("studentModal").classList.remove("open");
+document.getElementById("cancelStudentBtn").onclick=()=>document.getElementById("studentModal").classList.remove("open");
+document.getElementById("studentModal").addEventListener("click",e=>{if(e.target.id==="studentModal")document.getElementById("studentModal").classList.remove("open")});
+document.getElementById("studentForm").onsubmit=e=>{
+  e.preventDefault();
+  const item={
+    name:document.getElementById("newStudentName").value.trim(),
+    type:document.getElementById("newStudentType").value,
+    program:document.getElementById("newStudentProgram").value.trim(),
+    mode:document.getElementById("newStudentMode").value.trim(),
+    note:document.getElementById("newStudentNote").value.trim()
+  };
+  if(!item.name){toast("Nama wajib diisi.");return}
+  const list=getRegisteredStudents();
+  if(list.some(x=>x.name.toLowerCase()===item.name.toLowerCase())){toast("Nama sudah terdaftar.");return}
+  list.push(item); saveRegisteredStudents(list);
+  refreshNameOptions(); renderStudents();
+  document.getElementById("studentModal").classList.remove("open");
+  toast(`${item.name} berhasil didaftarkan.`);
+};
 document.getElementById("addBtn").onclick=()=>openModal();
 document.getElementById("closeModal").onclick=closeModal;
 document.getElementById("cancelBtn").onclick=closeModal;
