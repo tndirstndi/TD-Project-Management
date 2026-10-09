@@ -70,6 +70,256 @@ button,input,select{font:inherit}.app{max-width:1400px;margin:auto;padding:24px}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-grid .full{grid-column:1/-1}.profile-grid{display:grid;grid-template-columns:280px 1fr;gap:16px}.profile-avatar{width:82px;height:82px;border-radius:50%;background:#eef3ff;color:#2457d6;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800}
 @media(max-width:850px){.sidebar{transform:translateX(-100%);transition:.2s}.sidebar.open{transform:translateX(0)}.main-app{margin-left:0}.mobile-menu{display:block}.dashboard-grid{grid-template-columns:1fr 1fr}.dash-cols,.profile-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}}
 @media(max-width:500px){.dashboard-grid,.quick-grid{grid-template-columns:1fr}.page-content{padding:16px}}
+
+/* Modern polish */
+:root{--bg:#f3f6fc;--line:#e5eaf3;--blue:#315efb}
+.stat-card,.dash-panel,.stat,.panel{box-shadow:0 6px 22px rgba(16,35,74,.035);transition:transform .18s ease,box-shadow .18s ease}
+.stat-card:hover,.dash-panel:hover,.stat:hover{box-shadow:0 10px 28px rgba(16,35,74,.075);transform:translateY(-2px)}
+.sidebar{box-shadow:8px 0 30px rgba(17,34,68,.025)}
+.nav button{transition:background .15s,color .15s}
+.nav button.active{font-weight:800}
+.topbar{backdrop-filter:blur(12px)}
+.dashboard-grid{gap:16px}
+.stat-card{border-radius:18px;padding:20px;position:relative;overflow:hidden}
+.stat-value{letter-spacing:-.035em}
+.dash-panel{border-radius:18px}
+.schedule-item{gap:12px;align-items:center;background:#fff;transition:border-color .15s}
+.schedule-item:hover{border-color:#b8c8ff}
+.monthly-income-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:16px}
+.monthly-income-total{background:linear-gradient(135deg,#0b1730,#2457d6);color:white;border-radius:16px;padding:20px}
+.monthly-income-total small{color:#dbe7ff}
+.monthly-income-total strong{display:block;font-size:26px;margin-top:8px}
+.month-bars{display:flex;align-items:end;gap:8px;height:145px;padding:10px 0 0}
+.month-bar-item{flex:1;min-width:0;text-align:center}
+.month-bar{background:linear-gradient(180deg,#42c5f5,#315efb);border-radius:7px 7px 2px 2px;min-height:3px}
+.month-bar-label{font-size:10px;color:var(--muted);margin-top:5px}
+.target-pill{display:inline-flex;padding:4px 8px;border-radius:99px;background:#fff4dd;color:#985d00;font-size:11px;font-weight:800}
+@media(max-width:700px){.monthly-income-grid{grid-template-columns:1fr}}
+
+
+/* Premium UI refresh — midnight indigo, violet and mint */
+:root{
+ --navy:#151735;--navy2:#25295b;--blue:#635bff;--cyan:#20c9b5;
+ --bg:#f5f6fc;--card:#ffffff;--text:#202342;--muted:#777c9b;--line:#e8e9f4;
+ --green:#13a985;--orange:#f2a93b;--red:#e85d75;
+}
+html{scroll-behavior:smooth}
+body{background:#f5f6fc;color:var(--text);letter-spacing:-.01em}
+.app-shell{background:radial-gradient(ellipse at 85% 0%,rgba(99,91,255,.07),transparent 30%),#f5f6fc}
+.sidebar{width:252px;padding:20px 14px;background:linear-gradient(180deg,#191b3b 0%,#20234b 65%,#272653 100%);border:0;box-shadow:10px 0 35px rgba(30,32,75,.08);color:#fff}
+.brand{padding:12px 12px 23px;border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:16px}
+.brand-title{font-size:22px;font-weight:850;letter-spacing:-.055em;color:#fff;display:flex;align-items:center;gap:10px}
+.brand-title:before{content:"R";display:inline-grid;place-items:center;width:35px;height:35px;border-radius:12px;background:linear-gradient(135deg,#8178ff,#4cbbdc);box-shadow:0 7px 18px #635bff55;font-size:18px;color:#fff}
+.brand-sub{font-size:11px;color:#b9bddc;margin:7px 0 0 45px;letter-spacing:.035em}
+.nav-label{color:#9298c5;font-size:10px;letter-spacing:.15em;padding:14px 13px 8px}
+.nav{gap:6px}
+.nav button{color:#c7c9e3;border:1px solid transparent;border-radius:12px;padding:12px 13px;font-size:13px;font-weight:600;transition:all .2s ease}
+.nav button:hover{background:#ffffff0e;color:#fff;transform:translateX(2px)}
+.nav button.active{color:#fff;background:linear-gradient(100deg,#635bff3d,#20c9b51b);border-color:#8580ff55;box-shadow:inset 3px 0 #8b85ff}
+.side-bottom{border-top:1px solid #ffffff1c}
+.side-bottom .nav{color:#f7a7b4!important;background:#ffffff0b;width:100%;text-align:left;padding:11px 12px;border-radius:10px}
+.main-app{margin-left:252px}
+.topbar{height:72px;padding:0 30px;background:rgba(255,255,255,.88);border-bottom:1px solid #e9eaf5;box-shadow:0 5px 24px rgba(32,35,66,.025);backdrop-filter:blur(18px)}
+.topbar h2,.topbar h1{letter-spacing:-.045em}
+.page-content{padding:30px;max-width:1600px}
+.view>h1,.view>div>h1{font-size:27px;letter-spacing:-.055em;color:#202342}
+.dashboard-grid{gap:17px;margin:22px 0}
+.stat-card{position:relative;isolation:isolate;overflow:hidden;border:1px solid #e8e9f5;border-radius:20px;padding:21px 21px 20px;background:linear-gradient(145deg,#fff 0%,#fbfbff 100%);box-shadow:0 7px 24px rgba(39,42,93,.045);transition:transform .22s,box-shadow .22s,border-color .22s}
+.stat-card:before{content:"";position:absolute;z-index:-1;right:-25px;top:-30px;width:105px;height:105px;border-radius:35px;background:linear-gradient(135deg,#635bff12,#20c9b515);transform:rotate(25deg)}
+.stat-card:after{content:"";position:absolute;left:0;top:19px;bottom:19px;width:3px;border-radius:0 5px 5px 0;background:linear-gradient(180deg,#8178ff,#20c9b5);opacity:.85}
+.stat-card:nth-child(2):after{background:linear-gradient(180deg,#ffbd69,#f28a68)}
+.stat-card:nth-child(3):after{background:linear-gradient(180deg,#20c9b5,#62d7a5)}
+.stat-card:nth-child(4):after{background:linear-gradient(180deg,#60a5fa,#8b85ff)}
+.stat-card:hover{transform:translateY(-4px);border-color:#d4d3ff;box-shadow:0 15px 34px rgba(58,55,130,.10)}
+.stat-label{font-size:12px;color:#777c9b;font-weight:650;letter-spacing:.01em}
+.stat-value{font-size:clamp(21px,2vw,28px);font-weight:850;color:#23264a;letter-spacing:-.055em;margin-top:10px}
+.dash-panel,.panel{border:1px solid #e8e9f5;border-radius:20px;background:rgba(255,255,255,.96);padding:22px;box-shadow:0 7px 26px rgba(39,42,93,.035)}
+.dash-panel h2,.panel h2{font-size:16px;font-weight:800;letter-spacing:-.025em;color:#282a50}
+.dash-cols{gap:18px}
+.quick-grid{gap:11px}
+.quick-btn{border:1px solid #e8e9f5;border-radius:15px;padding:16px;background:linear-gradient(145deg,#fff,#fafaff);color:#34365d;font-size:20px;transition:all .2s;box-shadow:0 3px 10px #292c5a05}
+.quick-btn b{display:block;font-size:12px;margin-top:9px;color:#34365d}
+.quick-btn:hover{transform:translateY(-3px);border-color:#c9c5ff;background:linear-gradient(145deg,#f5f4ff,#f4fffd);box-shadow:0 10px 24px #5149a51a}
+.schedule-item{border:1px solid #ececf6;border-radius:13px;padding:13px;background:#fcfcff;transition:all .2s}
+.schedule-item:hover{background:#f8f7ff;border-color:#d7d3ff;transform:translateX(2px)}
+.btn{border-radius:11px;padding:11px 16px;font-size:13px;font-weight:750;transition:transform .15s,box-shadow .15s,filter .15s}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.025)}
+.btn.primary{background:linear-gradient(135deg,#6d63ff,#5148df);box-shadow:0 6px 14px #635bff30;color:#fff}
+.btn.dark{background:linear-gradient(135deg,#24264f,#353766);color:#fff}
+.btn.light{background:#fff;border:1px solid #e4e5f2;color:#555a7b}
+.btn.danger{background:#fff2f4;border-color:#ffd5dc;color:#c83d5a}
+.iconbtn{border:1px solid #e7e8f3;border-radius:10px;background:#fff;color:#575b7c;transition:all .18s}
+.iconbtn:hover{background:#f1f0ff;border-color:#cbc7ff;color:#5148df}
+.filters input,.filters select,.form input,.form select,.form-grid input,.form-grid select,.form-grid textarea{border:1px solid #e2e4f1;border-radius:11px;background:#fcfcff;color:#292b4f;transition:border-color .18s,box-shadow .18s}
+.filters input:focus,.filters select:focus,.form input:focus,.form select:focus,.form-grid input:focus,.form-grid select:focus,.form-grid textarea:focus{outline:none;border-color:#8b83ff;box-shadow:0 0 0 3px #635bff18}
+.table th,.finance-table th{color:#8589a5;font-size:10px;letter-spacing:.09em}
+.table td,.finance-table td{color:#484b6c}
+.table tbody tr:hover,.finance-table tbody tr:hover{background:#fafaff}
+.tag{background:#eeedff;color:#564bd0;border:1px solid #e0ddff}
+.tag.flex{background:#fff5e6;color:#a86a12;border-color:#ffebc8}
+.calendar .day{background:#fff;border-color:#ececf6;border-radius:13px;transition:all .18s}
+.calendar .day:hover{background:#f7f6ff;border-color:#c7c2ff}
+.calendar .day.today{border:2px solid #7167ff;box-shadow:0 0 0 3px #635bff12}
+.event{background:#eeedff;color:#5148c8}
+.event.green{background:#e5faf4;color:#087d68}
+.event.orange{background:#fff4e2;color:#9d6415}
+.monthly-income-total{background:radial-gradient(circle at 100% 0%,#7972ff 0%,transparent 38%),linear-gradient(135deg,#222449,#4d47a8);border-radius:18px;box-shadow:0 12px 28px #29235f20}
+.month-bar{background:linear-gradient(180deg,#7e76ff,#5148df);border-radius:8px 8px 3px 3px;box-shadow:0 3px 8px #635bff20}
+.month-bar-item:hover .month-bar{filter:brightness(1.12)}
+.modal{backdrop-filter:blur(6px);background:rgba(23,24,57,.55)}
+.modalbox{border:1px solid #eeeeff;border-radius:22px;box-shadow:0 24px 80px #11123535}
+.toast{background:#24264f;border:1px solid #494b7a;box-shadow:0 10px 28px #15173530}
+.db-status{border-radius:12px}
+.login-overlay{background:radial-gradient(circle at 15% 15%,#4f48b9 0%,transparent 33%),radial-gradient(circle at 90% 90%,#167e91 0%,transparent 28%),linear-gradient(135deg,#171936,#252852)}
+.login-card{border:1px solid #ffffff80;border-radius:25px;box-shadow:0 30px 100px #090b2b70}
+.login-brand .icon{background:linear-gradient(135deg,#8178ff,#20c9b5);box-shadow:0 12px 28px #635bff40}
+.login-btn{background:linear-gradient(120deg,#6d63ff,#4f48d7 55%,#20bba9);box-shadow:0 8px 18px #635bff32}
+.auth-tab.active{color:#5148df}
+.user-email{background:#f9f9ff;border-color:#e6e7f4;border-radius:11px}
+@media(max-width:850px){.sidebar{box-shadow:15px 0 50px #17193630}.page-content{padding:20px}}
+@media(max-width:600px){.topbar{height:62px;padding:0 15px}.page-content{padding:15px}.dashboard-grid{gap:10px}.stat-card{padding:16px 14px;border-radius:16px}.stat-value{font-size:20px}.dash-panel,.panel{padding:16px;border-radius:17px}.view>h1,.view>div>h1{font-size:23px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
+
+/* Schedule planner: consistent premium UI and accessible inputs */
+.view#page-schedule .dashboard-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.schedule-hero{position:relative;display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:space-between;padding:28px 30px;margin-bottom:18px;border-radius:24px;overflow:hidden;color:#fff;background:radial-gradient(circle at 88% 10%,#8b83ff55 0,transparent 27%),linear-gradient(125deg,#25264f 0%,#5148df 58%,#6b78e8 100%);box-shadow:0 16px 35px #5148df25}
+.schedule-hero:after{content:"";position:absolute;right:20%;bottom:-100px;width:220px;height:220px;border:1px solid #ffffff20;border-radius:50%;pointer-events:none}.schedule-hero>div:first-child{position:relative;z-index:1;flex:1;min-width:220px}.schedule-hero h1{font-size:clamp(25px,3vw,34px);letter-spacing:-.045em;margin:5px 0 8px}.schedule-hero p{margin:0;color:#e3e5ff;font-size:13px;max-width:490px;line-height:1.6}.eyebrow{font-size:10px;font-weight:850;letter-spacing:.16em;color:#c8c8ff}.schedule-live{z-index:1;display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid #ffffff30;border-radius:16px;background:#ffffff12;backdrop-filter:blur(8px);min-width:170px}.live-dot{width:9px;height:9px;border-radius:50%;background:#78f2c7;box-shadow:0 0 0 5px #78f2c722}.schedule-live div{display:grid;gap:2px}.schedule-live small{font-size:9px;letter-spacing:.12em;color:#d9dcff;font-weight:800}.schedule-live strong{font-size:22px;font-variant-numeric:tabular-nums;letter-spacing:.03em}.schedule-live span:last-child{font-size:10px;color:#e0e2ff}.schedule-add{z-index:1;white-space:nowrap;background:#fff!important;color:#5148df!important;box-shadow:0 5px 15px #14143c25!important}
+.schedule-tools{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:16px!important}.schedule-view-tabs{display:flex;gap:5px;padding:5px;background:#f1f1fc;border-radius:13px}.schedule-tab{border:0;background:transparent;color:#737695;padding:10px 14px;border-radius:9px;font-weight:750;font-size:12px;cursor:pointer;transition:.18s}.schedule-tab.active{background:#fff;color:#5148df;box-shadow:0 2px 9px #25264f12}.schedule-filters{display:flex;align-items:end;gap:9px;flex-wrap:wrap}.filter-field{display:grid;gap:5px;font-size:10px;color:#777b9b;font-weight:800}.filter-field select,.filter-field input{min-width:155px;padding:10px 12px;border:1px solid #e4e5f3;border-radius:11px;background:#fcfcff;color:#34365a;outline:none;min-height:41px}.filter-field input:focus,.filter-field select:focus{border-color:#8d84ff;box-shadow:0 0 0 3px #635bff16}.schedule-results{min-height:170px}.schedule-results-head,.week-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:15px}.schedule-results h2,.week-head h2{margin:0;font-size:17px}.schedule-results-head p,.week-head p{margin:5px 0 0;font-size:12px;color:#8a8da8}.schedule-item{display:flex;gap:13px;align-items:center;padding:15px;border-radius:15px;background:linear-gradient(110deg,#fff,#fcfbff);border:1px solid #ececf6;box-shadow:0 2px 6px #2b2d5904}.schedule-item:before{content:"";width:4px;align-self:stretch;min-height:42px;border-radius:8px;background:#8b83ff;flex-shrink:0}.schedule-item[data-kind="teaching"]:before{background:#20b99a}.schedule-item[data-kind="college"]:before{background:#6d63ff}.schedule-item[data-kind="other"]:before{background:#f4a64c}.schedule-item[data-kind="target"]:before{background:#ef7297}.schedule-item>div:first-of-type{flex:1}.schedule-time{display:inline-flex;align-items:center;gap:6px;padding:5px 8px;border-radius:8px;background:#f0efff;color:#5148df;font-size:11px;font-weight:800;font-variant-numeric:tabular-nums}.schedule-date-chip{display:inline-flex;align-items:center;padding:5px 8px;border-radius:8px;background:#f5f6fb;color:#6d718e;font-size:10px;font-weight:750}.schedule-meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.schedule-actions{display:flex;gap:6px;align-items:center}.schedule-actions .iconbtn{width:34px;height:34px;display:grid;place-items:center}.status-pill{display:inline-flex;border-radius:99px;padding:4px 8px;font-size:10px;font-weight:800}.status-planned{background:#eeedff;color:#5148df}.status-done{background:#e5faf4;color:#087d68}.status-cancelled{background:#fff0f1;color:#c83d5a}.week-nav{display:flex;align-items:center;gap:7px}.week-grid{display:grid;grid-template-columns:repeat(7,minmax(120px,1fr));gap:9px;overflow-x:auto;padding-bottom:5px}.week-day{min-height:220px;border:1px solid #ececf6;background:#fcfcff;border-radius:14px;padding:10px;min-width:120px}.week-day.is-today{background:#f5f4ff;border-color:#bdb8ff;box-shadow:inset 0 0 0 1px #dedbff}.week-day-head{padding-bottom:9px;border-bottom:1px solid #e9e9f5;margin-bottom:9px}.week-day-head span{display:block;font-size:10px;color:#8589a5;font-weight:800;text-transform:uppercase;letter-spacing:.06em}.week-day-head strong{display:block;font-size:20px;margin-top:3px;color:#33355c}.week-event{padding:9px;margin-bottom:7px;border-radius:10px;background:#eeedff;border-left:3px solid #6d63ff;color:#38365f;overflow-wrap:anywhere}.week-event.teaching{background:#e7faf5;border-color:#1eae91}.week-event.other{background:#fff5e7;border-color:#f1a43c}.week-event.target{background:#fff0f5;border-color:#e96d93}.week-event small{display:block;font-size:9px;font-weight:850;margin-bottom:4px;opacity:.8}.week-event strong{font-size:10px;line-height:1.4;display:block}.week-empty{color:#b0b2c5;font-size:10px;text-align:center;padding:18px 0}.form-intro{display:flex;align-items:center;gap:12px;padding:14px;margin:0 0 18px;border-radius:14px;background:linear-gradient(110deg,#f3f2ff,#f1fbfa)}.form-icon{width:39px;height:39px;display:grid;place-items:center;border-radius:12px;background:#fff;color:#6258ed;font-size:20px;box-shadow:0 3px 10px #5148df14}.form-intro strong,.form-intro small{display:block}.form-intro strong{font-size:14px;color:#2d2e55}.form-intro small{font-size:11px;color:#8588a5;margin-top:3px}.time-field{border:1px solid #e5e5f3;border-radius:15px;padding:13px;background:linear-gradient(135deg,#fcfbff,#f8fbff)}.time-label{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;font-size:12px;font-weight:850;color:#484a70}.time-label small{font-size:10px;font-weight:550;color:#9295ad}.time-range{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.time-input-wrap{flex:1;min-width:115px;display:grid;gap:6px;padding:9px 11px;border:1px solid #e6e5f4;background:#fff;border-radius:12px}.time-input-wrap span{font-size:10px;color:#898ca8;font-weight:800}.time-input-wrap input{width:100%;min-width:0;border:0!important;padding:0!important;background:transparent!important;border-radius:0!important;min-height:27px!important;font-size:21px!important;font-weight:850!important;color:#37385f!important;font-variant-numeric:tabular-nums;outline:none!important;box-shadow:none!important}.time-input-wrap:focus-within{border-color:#8d84ff;box-shadow:0 0 0 3px #635bff15}.time-arrow{color:#9b9db6;font-size:18px;font-weight:800}.duration-chip{padding:8px 10px;border-radius:9px;background:#eeedff;color:#5148df;font-size:10px;font-weight:850;white-space:nowrap}.field-hint{font-size:10px;color:#9295ad;margin-top:8px}.form-grid label{gap:7px;font-size:11px;color:#5e6181;font-weight:800}.form-grid input,.form-grid select,.form-grid textarea{width:100%;min-width:0;padding:11px 12px;min-height:43px;border:1px solid #e4e5f2;border-radius:11px;background:#fcfcff;font-size:13px;color:#333557}.form-grid input:focus,.form-grid select:focus,.form-grid textarea:focus{outline:none;border-color:#8b83ff;box-shadow:0 0 0 3px #635bff16}.form-grid .full{grid-column:1/-1}.modalbox{box-shadow:0 24px 80px #12143a38}.modalbox h2{font-size:20px;letter-spacing:-.03em;color:#292b51}.modal-actions{padding-top:14px;border-top:1px solid #eeeef7}.schedule-item b{color:#333557}.schedule-item .muted{color:#898ca8}
+@media(max-width:1100px){.view#page-schedule .dashboard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:900px){.schedule-hero{padding:22px}.schedule-live{min-width:150px}.schedule-tools{align-items:stretch}.schedule-filters{width:100%}.filter-field{flex:1;min-width:130px}.filter-field input,.filter-field select{width:100%;min-width:0}.week-grid{grid-template-columns:repeat(7,minmax(135px,1fr))}}
+@media(max-width:600px){.schedule-hero{padding:20px;border-radius:18px;gap:14px}.schedule-hero>div:first-child{min-width:100%}.schedule-live{flex:1}.schedule-add{flex:1}.schedule-tools{padding:13px!important}.schedule-view-tabs{width:100%}.schedule-tab{flex:1;padding:10px 7px;font-size:11px}.schedule-filters{display:grid;grid-template-columns:1fr 1fr}.filter-field{min-width:0}.schedule-filters .btn{grid-column:1/-1}.schedule-item{align-items:flex-start;padding:12px}.schedule-actions{flex-direction:column}.time-range{gap:7px}.time-input-wrap{min-width:calc(50% - 15px)}.time-arrow{font-size:14px}.duration-chip{width:100%;text-align:center}.time-label{align-items:flex-start;flex-direction:column;gap:3px}.modalbox{padding:18px}.week-head{align-items:flex-start}.week-nav{width:100%;justify-content:flex-end}}
+
+/* Portfolio and finance modules */
+.portfolio-hero,.finance-hero{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:28px 30px;border-radius:23px;margin-bottom:18px;position:relative;overflow:hidden;color:#fff;box-shadow:0 14px 32px #27264c12}.portfolio-hero{background:radial-gradient(circle at 85% 0,#b8b1ff70,transparent 30%),linear-gradient(125deg,#202146,#5148df 64%,#8581f4)}.portfolio-hero>div,.finance-hero>div{max-width:680px}.portfolio-hero h1,.finance-hero h1{font-size:clamp(26px,3vw,34px);letter-spacing:-.04em;margin:6px 0}.portfolio-hero p,.finance-hero p{margin:0;color:#e6e7ff;font-size:13px;line-height:1.6}.portfolio-hero .btn{background:#fff;color:#5148df;z-index:1}.portfolio-toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 18px}.portfolio-search{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid #e7e7f3;border-radius:12px;padding:0 12px;min-width:240px;flex:1}.portfolio-search span{font-size:22px;color:#8585a6}.portfolio-search input{border:0;outline:0;background:transparent;padding:12px 0;width:100%;min-width:0}.portfolio-toolbar select,.finance-filters input,.finance-filters select{padding:11px 12px;border:1px solid #e4e5f2;border-radius:11px;background:#fff;color:#454665;min-height:42px;outline:none}.portfolio-count{font-size:12px;color:#797b9b;font-weight:750}.portfolio-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.portfolio-card{background:#fff;border:1px solid #e9e9f4;border-radius:18px;overflow:hidden;box-shadow:0 4px 14px #20214608;transition:transform .2s,box-shadow .2s;min-width:0}.portfolio-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px #20214613}.portfolio-cover{height:190px;background:linear-gradient(135deg,#eeedff,#e7f7f4);position:relative;overflow:hidden}.portfolio-cover img{width:100%;height:100%;object-fit:cover;display:block}.portfolio-cover-placeholder{height:100%;display:grid;place-items:center;font-size:48px;color:#7772d9}.portfolio-category{position:absolute;left:12px;top:12px;background:#fff;box-shadow:0 2px 8px #1112;color:#5148df;border-radius:99px;padding:6px 10px;font-size:10px;font-weight:850}.portfolio-card-body{padding:16px}.portfolio-card h3{margin:0 0 6px;font-size:16px;line-height:1.35;color:#292b51}.portfolio-org,.portfolio-date{font-size:11px;color:#8587a5}.portfolio-desc{font-size:12px;line-height:1.65;color:#656783;margin:12px 0;white-space:pre-wrap;overflow-wrap:anywhere}.portfolio-achievement{padding:10px 11px;background:#effbf7;border:1px solid #d8f4e9;border-radius:11px;color:#16745f;font-size:11px;line-height:1.5;margin-top:10px}.portfolio-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:12px}.portfolio-tags span{background:#f3f3fb;color:#686b8b;border-radius:7px;padding:5px 7px;font-size:10px}.portfolio-card-actions{display:flex;gap:7px;border-top:1px solid #f0f0f6;padding:11px 15px}.portfolio-card-actions button{flex:1}.portfolio-empty{grid-column:1/-1;padding:55px 20px;text-align:center;background:#fff;border:1px dashed #d8d8eb;border-radius:18px;color:#8587a5}.portfolio-empty b{display:block;color:#3a3b5d;margin:10px 0 5px}.portfolio-upload{height:190px;border:1.5px dashed #bcb9ed;border-radius:16px;background:linear-gradient(135deg,#f7f6ff,#f1fbfa);display:grid;place-items:center;position:relative;overflow:hidden;margin:14px 0 18px;text-align:center;cursor:pointer}.portfolio-upload input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;z-index:2}.portfolio-upload b,.portfolio-upload small{display:block}.portfolio-upload b{font-size:13px;color:#48486e;margin:8px 0 5px}.portfolio-upload small{font-size:10px;color:#9091ad}.upload-symbol{width:38px;height:38px;border-radius:12px;background:#fff;display:grid;place-items:center;color:#635bff;font-size:25px;margin:auto;box-shadow:0 3px 10px #5148df12}.portfolio-upload img{width:100%;height:100%;object-fit:contain;background:#f7f7fc}.portfolio-form-grid,.finance-form-grid{margin-top:10px}.portfolio-modalbox,.finance-modalbox{width:min(760px,100%)}.finance-hero{background:radial-gradient(circle at 88% 5%,#ffffff25,transparent 28%),linear-gradient(125deg,#163b35,#16856e 65%,#44b89d)}.expense-hero{background:radial-gradient(circle at 88% 5%,#ffffff30,transparent 28%),linear-gradient(125deg,#42263c,#b74770 65%,#e17b92)}.finance-add{background:#fff;color:#13765f;z-index:1;white-space:nowrap}.expense-hero .finance-add{color:#ad3c65}.finance-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:0 0 18px}.finance-stat{display:flex;align-items:center;gap:13px;padding:18px;background:#fff;border:1px solid #e8eaf2;border-radius:16px;min-width:0;box-shadow:0 3px 12px #20214606}.finance-stat-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;font-size:21px;font-weight:900;flex-shrink:0}.finance-stat-icon.green{background:#e4faf2;color:#12866b}.finance-stat-icon.blue{background:#eaf0ff;color:#3e61d8}.finance-stat-icon.amber{background:#fff4df;color:#b77b17}.finance-stat-icon.red{background:#fff0f3;color:#c44768}.finance-stat small{display:block;font-size:11px;color:#8587a5;margin-bottom:5px}.finance-stat strong{font-size:clamp(16px,2vw,23px);color:#292b51;overflow-wrap:anywhere}.finance-panel{padding:0!important;overflow:hidden}.finance-toolbar{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:20px;border-bottom:1px solid #eeeef5}.finance-toolbar h2{font-size:17px;margin:0;color:#2f3056}.finance-toolbar p{font-size:11px;color:#888aa5;margin:5px 0 0}.finance-filters{display:flex;gap:7px;flex-wrap:wrap}.finance-filters input,.finance-filters select{font-size:12px;max-width:210px}.finance-table-wrap{overflow:auto}.finance-table{width:100%;border-collapse:collapse;min-width:750px}.finance-table th{background:#fafaff;color:#888aa5;font-size:10px;text-transform:uppercase;letter-spacing:.06em}.finance-table th,.finance-table td{padding:13px 16px;border-bottom:1px solid #f0f0f7;text-align:left;font-size:12px}.finance-table td{color:#4d4f70}.finance-table tr:hover td{background:#fcfcff}.finance-source{font-weight:800;color:#303153!important}.finance-sub{font-size:10px;color:#9698b0;margin-top:4px}.finance-amount{font-weight:850;white-space:nowrap}.finance-amount.income{color:#13866a}.finance-amount.expense{color:#c44768}.finance-badge{display:inline-flex;padding:5px 8px;border-radius:99px;font-size:10px;font-weight:800;background:#e6faf3;color:#168167}.finance-badge.pending{background:#fff4df;color:#a66a11}.finance-amount-field{padding:16px;border-radius:15px;background:linear-gradient(120deg,#f1fbf7,#f3f2ff);border:1px solid #e0f1ed;margin:18px 0}.finance-amount-field label{font-size:11px;font-weight:850;color:#666987;display:block;margin-bottom:8px}.finance-amount-field>div{display:flex;align-items:center;gap:8px}.finance-amount-field>div span{font-size:18px;font-weight:850;color:#777a98}.finance-amount-field input{border:0;background:transparent;outline:none;width:100%;font-size:30px;font-weight:900;color:#292b51;min-width:0}.finance-amount-field small{font-size:10px;color:#898ba7}.finance-form-grid label{display:grid;gap:7px;font-size:11px;font-weight:800;color:#5e6181}.finance-form-grid input,.finance-form-grid select,.finance-form-grid textarea,.portfolio-form-grid input,.portfolio-form-grid select,.portfolio-form-grid textarea{width:100%;min-width:0;padding:11px 12px;min-height:43px;border:1px solid #e4e5f2;border-radius:11px;background:#fcfcff;font-size:13px;color:#333557;outline:none}.finance-form-grid textarea,.portfolio-form-grid textarea{resize:vertical}.finance-form-grid input:focus,.finance-form-grid select:focus,.finance-form-grid textarea:focus,.portfolio-form-grid input:focus,.portfolio-form-grid select:focus,.portfolio-form-grid textarea:focus{border-color:#8b83ff;box-shadow:0 0 0 3px #635bff16}.finance-table .actions{white-space:nowrap}.finance-empty{text-align:center;padding:42px 18px;color:#888aa5;font-size:12px}.finance-empty b{display:block;color:#444568;margin-bottom:5px}
+@media(max-width:1100px){.portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.portfolio-grid{grid-template-columns:1fr}.portfolio-hero,.finance-hero{padding:22px;border-radius:18px}.portfolio-hero .btn,.finance-add{width:100%}.finance-stats{grid-template-columns:1fr}.finance-toolbar{padding:15px}.finance-filters{width:100%;display:grid;grid-template-columns:1fr 1fr}.finance-filters input,.finance-filters select{max-width:none;width:100%;min-width:0}.finance-filters select{grid-column:1/-1}.finance-amount-field input{font-size:25px}.portfolio-cover{height:210px}}
+
+
+/* === REKAPKERJA DESIGN SYSTEM: consistent sizing across every page === */
+:root{
+  --ui-space-1:4px; --ui-space-2:8px; --ui-space-3:12px; --ui-space-4:16px;
+  --ui-space-5:20px; --ui-space-6:24px; --ui-radius-sm:10px; --ui-radius-md:14px;
+  --ui-radius-lg:20px; --ui-border:#e7e9f4; --ui-shadow:0 8px 26px rgba(35,38,82,.055);
+}
+html{scroll-behavior:smooth}
+body{background:#f5f6fc;overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+button{transition:background-color .18s ease,border-color .18s ease,box-shadow .18s ease,transform .18s ease}
+.main-app{min-width:0;width:calc(100% - 252px)}
+.page-content{width:100%;max-width:1600px;padding:28px clamp(16px,2.2vw,32px);}
+.view{width:100%;min-width:0}
+.view.active{animation:uiPageIn .18s ease-out}
+@keyframes uiPageIn{from{opacity:.65;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+.view h1{line-height:1.2}
+.view h2{line-height:1.35}
+/* Shared cards and consistent inner spacing */
+.dash-panel,.panel,.stat-card,.stat,.finance-stat,.portfolio-card,.week-day{box-sizing:border-box}
+.dash-panel,.panel{border-radius:var(--ui-radius-lg);padding:clamp(16px,1.6vw,22px);border-color:var(--ui-border);box-shadow:var(--ui-shadow)}
+.dashboard-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.dashboard-grid>*{min-width:0}
+.dash-cols{grid-template-columns:minmax(0,1.3fr) minmax(280px,.9fr);gap:16px}
+/* Page banners use a shared minimum height and padding */
+.schedule-hero,.portfolio-hero,.finance-hero{min-height:174px;padding:26px clamp(18px,2.2vw,30px);border-radius:var(--ui-radius-lg);margin:0 0 18px;box-sizing:border-box}
+.schedule-hero>div:first-child,.portfolio-hero>div,.finance-hero>div{min-width:0}
+.schedule-hero h1,.portfolio-hero h1,.finance-hero h1{line-height:1.16;margin-top:6px}
+.schedule-hero p,.portfolio-hero p,.finance-hero p{max-width:620px}
+/* Uniform control sizes across all forms, filters, and modals */
+input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),select,textarea{
+  box-sizing:border-box;max-width:100%;font-family:inherit;
+}
+.form-grid input,.form-grid select,.form-grid textarea,
+.form input,.form select,.form textarea,
+.finance-form-grid input,.finance-form-grid select,.finance-form-grid textarea,
+.portfolio-form-grid input,.portfolio-form-grid select,.portfolio-form-grid textarea{
+  width:100%;min-width:0;min-height:44px;padding:11px 13px;border:1px solid #e2e5f0;border-radius:11px;background:#fff;color:#292b50;font-size:13px;line-height:1.4;
+}
+.form-grid textarea,.form textarea,.finance-form-grid textarea,.portfolio-form-grid textarea{min-height:100px;resize:vertical}
+.form-grid input:focus,.form-grid select:focus,.form-grid textarea:focus,
+.form input:focus,.form select:focus,.form textarea:focus,
+.finance-form-grid input:focus,.finance-form-grid select:focus,.finance-form-grid textarea:focus,
+.portfolio-form-grid input:focus,.portfolio-form-grid select:focus,.portfolio-form-grid textarea:focus{
+  outline:none;border-color:#8178ff;box-shadow:0 0 0 3px rgba(99,91,255,.13)
+}
+.form-grid label,.form label,.finance-form-grid label,.portfolio-form-grid label{min-width:0;line-height:1.45}
+.btn{min-height:42px;border-radius:11px;padding:10px 15px;display:inline-flex;align-items:center;justify-content:center;gap:7px;line-height:1.2}
+.iconbtn{min-width:36px;min-height:36px;border-radius:10px}
+.modalbox{width:min(680px,100%);padding:clamp(16px,2vw,24px);border-radius:22px}
+.portfolio-modalbox,.finance-modalbox{width:min(760px,100%)}
+/* Schedule: aligned stat cards, controls and agenda rows */
+.view#page-schedule .dashboard-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.schedule-tools{padding:0!important;gap:14px;margin-bottom:16px!important}
+.schedule-results{min-width:0;border-radius:var(--ui-radius-lg)}
+.schedule-list{gap:10px}
+.schedule-item{min-width:0;gap:12px;padding:14px 15px;border-radius:14px}
+.schedule-item>div{min-width:0;overflow-wrap:anywhere}
+.schedule-actions{flex-shrink:0}
+.schedule-filters{min-width:0}
+.filter-field{min-width:145px}
+.filter-field input,.filter-field select{min-height:43px;border-radius:11px}
+.week-grid{gap:10px}
+.week-day{min-height:210px;border-radius:13px}
+/* Portfolio and finance: same grid rhythm and aligned toolbar */
+.portfolio-toolbar,.finance-toolbar{gap:12px}
+.portfolio-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.portfolio-card{height:100%;display:flex;flex-direction:column}
+.portfolio-card-body{flex:1;min-width:0}
+.portfolio-cover{height:clamp(160px,15vw,205px);flex-shrink:0}
+.portfolio-card-actions{margin-top:auto}
+.finance-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.finance-stat{min-height:88px;padding:16px;min-width:0}
+.finance-toolbar{align-items:center}
+.finance-filters{min-width:0}
+.finance-filters>*{min-width:0}
+.finance-panel{min-width:0}
+.finance-table-wrap{max-width:100%;overflow-x:auto}
+/* Keep all views usable at tablet widths */
+@media(max-width:1200px){
+  .main-app{width:calc(100% - 252px)}
+  .dashboard-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .view#page-schedule .dashboard-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dash-cols{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:850px){
+  .main-app{width:100%;margin-left:0}
+  .page-content{padding:20px 18px}
+  .topbar{padding:0 18px}
+  .view#page-schedule .dashboard-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .schedule-hero,.portfolio-hero,.finance-hero{min-height:0}
+}
+@media(max-width:600px){
+  .page-content{padding:15px 12px}
+  .topbar{padding:0 12px}
+  .dashboard-grid,.view#page-schedule .dashboard-grid,.finance-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .portfolio-grid{grid-template-columns:minmax(0,1fr);gap:13px}
+  .schedule-hero,.portfolio-hero,.finance-hero{padding:19px 17px;gap:14px;border-radius:17px}
+  .schedule-hero h1,.portfolio-hero h1,.finance-hero h1{font-size:25px}
+  .schedule-live{min-width:0}
+  .schedule-tools{align-items:stretch}
+  .schedule-filters{grid-template-columns:repeat(2,minmax(0,1fr));width:100%}
+  .filter-field{min-width:0}
+  .filter-field input,.filter-field select{width:100%;min-width:0}
+  .schedule-item{align-items:flex-start;padding:12px;gap:9px}
+  .schedule-actions{flex-direction:row;flex-wrap:wrap}
+  .finance-toolbar{padding:15px;align-items:stretch}
+  .finance-filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}
+  .finance-filters select{grid-column:1/-1}
+  .finance-stats{grid-template-columns:1fr}
+  .finance-stat{min-height:75px}
+  .modal{padding:10px}
+  .modalbox{max-height:94vh;padding:16px}
+  .form-grid,.form{grid-template-columns:minmax(0,1fr)}
+  .form-grid .full,.form .full{grid-column:auto}
+  .btn{max-width:100%}
+}
+@media(prefers-reduced-motion:reduce){.view.active{animation:none}button{transition:none}}
+
+
+/* CV-style profile editor and live preview */
+.profile-page-head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px}.profile-page-head p{margin:0;color:var(--muted);font-size:13px}.eyebrow{font-size:10px;letter-spacing:.16em;font-weight:900;color:#635bff}.cv-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(310px,.9fr);gap:18px;align-items:start}.cv-editor{display:grid;gap:14px;min-width:0}.profile-editor-card{padding:22px!important;margin:0!important}.profile-section-title{display:flex;align-items:flex-start;gap:12px;margin-bottom:18px}.profile-section-title h2{font-size:16px;margin:0 0 4px}.profile-section-title p{font-size:12px;color:var(--muted);margin:0;line-height:1.5}.profile-step{flex:none;width:34px;height:34px;border-radius:11px;background:#eeedff;color:#5148df;display:grid;place-items:center;font-size:12px;font-weight:900}.profile-photo-row{display:flex;align-items:center;gap:16px;padding:15px;background:#f8f9ff;border:1px solid #e8eaff;border-radius:16px;margin-bottom:18px}.profile-avatar-large{width:94px;height:94px;flex:none;position:relative;overflow:hidden;border:3px solid #fff;box-shadow:0 4px 18px #25305a18;background:linear-gradient(135deg,#eeedff,#d9f7f0)}.profile-avatar-large img,.cv-preview-avatar img{width:100%;height:100%;object-fit:cover;border-radius:inherit}.profile-photo-info{display:flex;align-items:flex-start;gap:7px;flex-wrap:wrap}.profile-photo-info strong{width:100%;font-size:13px}.profile-photo-info p{width:100%;margin:0 0 4px;color:var(--muted);font-size:11px;line-height:1.5}.upload-profile-btn{display:inline-flex;align-items:center;justify-content:center;cursor:pointer}.text-btn{border:0;background:transparent;color:#dc4545;font-weight:700;font-size:12px;padding:10px;cursor:pointer}.profile-form-grid label,.profile-field-label{display:grid;gap:7px;font-size:12px;font-weight:750;color:#46516a}.profile-form-grid input,.profile-form-grid textarea,.profile-field-label textarea{width:100%;min-width:0;border:1px solid #dfe5f0;border-radius:11px;padding:12px 13px;background:#fbfcff;color:var(--text);outline:none;transition:border-color .18s,box-shadow .18s;font:inherit;font-size:13px}.profile-form-grid input:focus,.profile-form-grid textarea:focus,.profile-field-label textarea:focus{border-color:#766cff;box-shadow:0 0 0 3px #766cff18;background:#fff}.profile-form-grid textarea,.profile-field-label textarea{resize:vertical;line-height:1.6}.profile-form-grid small{font-size:10px;font-weight:500;color:var(--muted)}.profile-field-label{width:100%}.profile-save-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:8px 2px}.profile-save-row span{font-size:11px;color:var(--muted)}.cv-preview-wrap{position:sticky;top:82px;min-width:0}.cv-preview-label{display:flex;align-items:center;gap:8px;margin:0 0 9px 4px;font-size:10px;font-weight:900;letter-spacing:.14em;color:#6c7285}.preview-live-dot{width:7px;height:7px;border-radius:50%;background:#13b981;box-shadow:0 0 0 4px #13b9811c}.cv-preview{background:#fff;border:1px solid #e5e8f1;border-radius:20px;padding:25px;box-shadow:0 16px 44px #172b4d0c;overflow:hidden}.cv-preview-top{display:flex;align-items:center;gap:14px;padding-bottom:18px;border-bottom:2px solid #5148df}.cv-preview-avatar{width:72px;height:72px;border-radius:17px;flex:none;overflow:hidden;display:grid;place-items:center;background:#eeedff;color:#5148df;font-size:24px;font-weight:900}.cv-preview-top h2{font-size:20px;line-height:1.2;margin:0 0 5px;overflow-wrap:anywhere}.cv-preview-top p{margin:0;color:#5b5f78;font-size:12px;line-height:1.5}.cv-contact{display:flex;flex-wrap:wrap;gap:7px 12px;padding:13px 0;color:#687087;font-size:10px;overflow-wrap:anywhere}.cv-contact a{color:#5148df;text-decoration:none}.cv-divider{height:1px;background:#edf0f6}.cv-preview-section{margin-top:18px}.cv-preview-section h3{font-size:10px;letter-spacing:.13em;color:#5148df;margin:0 0 9px;font-weight:900}.cv-preview-section p{font-size:11px;line-height:1.75;color:#4f586c;margin:0;white-space:pre-line;overflow-wrap:anywhere}.cv-entry-list{display:grid;gap:8px}.cv-entry{border-left:2px solid #d9d6ff;padding:1px 0 2px 10px;color:#4f586c;font-size:11px;line-height:1.65;white-space:pre-line;overflow-wrap:anywhere}.cv-placeholder{color:#a1a7b5;font-size:11px;font-style:italic}.cv-skill-list{display:flex;flex-wrap:wrap;gap:6px}.cv-skill{background:#f0efff;color:#5148df;border-radius:7px;padding:5px 8px;font-size:10px;font-weight:750}.cv-preview-note{font-size:11px;line-height:1.6;color:var(--muted);padding:0 4px}.profile-avatar img{object-fit:cover}.profile-avatar:has(img:not([hidden])) #pInitial{display:none}
+@media(max-width:1050px){.cv-layout{grid-template-columns:1fr}.cv-preview-wrap{position:static}.cv-preview{max-width:760px}.cv-editor{order:1}.cv-preview-wrap{order:2}}
+@media(max-width:600px){.profile-editor-card{padding:16px!important}.profile-photo-row{align-items:flex-start;padding:12px}.profile-avatar-large{width:76px;height:76px}.cv-preview{padding:18px}.cv-preview-top h2{font-size:17px}.profile-page-head .btn{width:100%}.profile-save-row .btn{width:100%}}
+
 </style>
 </head>
 <body>
@@ -81,7 +331,7 @@ button,input,select{font:inherit}.app{max-width:1400px;margin:auto;padding:24px}
     <button class="active" data-page="dashboard">🏠 Dashboard</button>
     <button data-page="rekap">📚 Rekap Mengajar</button>
     <button data-page="schedule">📅 Schedule</button>
-    <button data-page="students">👨‍🎓 Siswa & Sekolah</button>
+    <button data-page="students">🗂️ Portofolio</button>
     <button data-page="income">💰 Pemasukan</button>
     <button data-page="expense">💸 Pengeluaran</button>
     <button data-page="profile">👤 Profil Saya</button>
@@ -190,6 +440,24 @@ button,input,select{font:inherit}.app{max-width:1400px;margin:auto;padding:24px}
  </div>
  <div class="chart" id="chart"></div>
 </section>
+<section class="panel">
+ <div class="section-head">
+   <h2>💰 Pendapatan Mengajar per Bulan</h2>
+   <span style="font-size:12px;color:var(--muted)">Honor + transport berdasarkan tanggal jadwal</span>
+ </div>
+ <div class="monthly-income-grid">
+   <div class="monthly-income-total">
+     <small id="monthlyIncomeLabel">Total bulan ini</small>
+     <strong id="monthlyIncomeTotal">Rp0</strong>
+     <div style="font-size:12px;margin-top:8px;color:#dbe7ff">Honor <b id="monthlyHonor">Rp0</b> · Transport <b id="monthlyTransport">Rp0</b></div>
+   </div>
+   <div><div style="font-size:12px;color:var(--muted)">Tren 6 bulan terakhir</div><div class="month-bars" id="monthlyIncomeBars"></div></div>
+ </div>
+ <div style="display:flex;gap:8px;align-items:center;margin-top:16px;flex-wrap:wrap">
+   <label for="incomeMonthSelect" style="font-size:12px;color:var(--muted)">Pilih bulan:</label>
+   <input id="incomeMonthSelect" type="month" style="border:1px solid var(--line);border-radius:10px;padding:9px 11px">
+ </div>
+</section>
 
 <section class="panel">
  <div class="section-head">
@@ -257,6 +525,8 @@ button,input,select{font:inherit}.app{max-width:1400px;margin:auto;padding:24px}
     </form>
   </div>
 </div>
+<div class="modal" id="portfolioModal"><div class="modalbox portfolio-modalbox"><div class="section-head"><div><div class="eyebrow" style="color:#635bff">PORTOFOLIO</div><h2 id="portfolioModalTitle">Tambah portofolio</h2></div><button class="iconbtn" id="closePortfolioModal" type="button">✕</button></div><form id="portfolioForm"><input type="hidden" id="portfolioEditId"><div class="portfolio-upload" id="portfolioDrop"><input type="file" id="portfolioPhoto" accept="image/*"><div id="portfolioUploadPlaceholder"><span class="upload-symbol">＋</span><b>Unggah foto atau dokumentasi</b><small>JPG, PNG, WEBP · foto akan dikompres otomatis</small></div><img id="portfolioPreview" alt="Pratinjau foto portofolio" hidden></div><div class="form-grid portfolio-form-grid"><label>Judul pengalaman / karya<input id="portfolioTitle" required placeholder="Contoh: Trainer Robotik Anak"></label><label>Kategori<select id="portfolioCategory"><option>Pengalaman</option><option>Proyek</option><option>Kegiatan</option><option>Sertifikat</option><option>Pencapaian</option><option>Lainnya</option></select></label><label>Organisasi / penyelenggara<input id="portfolioOrganization" placeholder="Nama sekolah, organisasi, atau klien"></label><label>Tanggal kegiatan<input id="portfolioDate" type="date"></label><label class="full">Deskripsi kegiatan / pengalaman<textarea id="portfolioDescription" rows="3" placeholder="Jelaskan peran, proses, atau kegiatan yang dilakukan..."></textarea></label><label class="full">Pencapaian / hasil<input id="portfolioAchievement" placeholder="Contoh: Mengajar di 5+ sekolah, menyelesaikan proyek..."></label><label class="full">Keahlian / tag<input id="portfolioSkills" placeholder="Pisahkan dengan koma, contoh: Robotik, Scratch, Mengajar"></label><label class="full">Tautan pendukung (opsional)<input id="portfolioLink" type="url" placeholder="https://..."></label></div><div class="modal-actions"><button type="button" class="btn light" id="cancelPortfolio">Batal</button><button class="btn primary" type="submit">Simpan portofolio</button></div></form></div></div>
+<div class="modal" id="financeModal"><div class="modalbox finance-modalbox"><div class="section-head"><div><div class="eyebrow" style="color:#635bff">CATAT TRANSAKSI</div><h2 id="financeModalTitle">Tambah transaksi</h2><p id="financeModalDesc" style="margin:4px 0 0;color:var(--muted);font-size:12px">Lengkapi informasi transaksi secara teratur.</p></div><button class="iconbtn" id="closeFinanceModal" type="button">✕</button></div><form id="financeForm"><input type="hidden" id="financeEditId"><input type="hidden" id="financeType"><div class="finance-amount-field"><label for="financeAmount">Nominal transaksi</label><div><span>Rp</span><input id="financeAmount" type="number" min="1" step="1" required placeholder="0"></div><small>Masukkan nominal dalam rupiah tanpa tanda titik.</small></div><div class="form-grid finance-form-grid"><label>Tanggal transaksi<input id="financeDate" type="date" required></label><label>Kategori<select id="financeCategory" required></select></label><label class="full">Sumber / keterangan<input id="financeSource" required placeholder="Contoh: Honor mengajar SD, beli bahan ajar"></label><label>Metode pembayaran<select id="financeMethod"><option>Tunai</option><option>Transfer bank</option><option>E-wallet</option><option>Kartu debit/kredit</option><option>Lainnya</option></select></label><label>Status transaksi<select id="financeStatus"><option value="paid">Sudah diterima/dibayar</option><option value="pending">Belum diterima/dibayar</option></select></label><label class="full">Catatan tambahan<textarea id="financeNote" rows="2" placeholder="Catatan, tujuan, atau detail tambahan (opsional)"></textarea></label></div><div class="modal-actions"><button type="button" class="btn light" id="cancelFinance">Batal</button><button class="btn primary" type="submit">Simpan transaksi</button></div></form></div></div>
 <div class="toast" id="toast"></div>
 
 
@@ -264,61 +534,94 @@ button,input,select{font:inherit}.app{max-width:1400px;margin:auto;padding:24px}
 </div></section>
 
 <section class="view" id="page-schedule">
-<div style="display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap">
-  <div><h1 style="margin:0">Schedule</h1><div style="color:var(--muted);font-size:13px;margin-top:4px">Gabungan jadwal mengajar, kuliah, dan kegiatan lainnya.</div></div>
-  <button class="btn primary" id="newGeneralSchedule">＋ Tambah Jadwal</button>
+<div class="schedule-hero">
+ <div><div class="eyebrow">PLANNER PRIBADI</div><h1>Jadwal & Agenda</h1><p>Atur waktu mengajar, kuliah, kegiatan, dan target tugas dalam satu tempat.</p></div>
+ <div class="schedule-live"><span class="live-dot"></span><div><small>WAKTU SEKARANG</small><strong id="scheduleLiveClock">--:--:--</strong><span id="scheduleLiveDate">Memuat tanggal…</span></div></div>
+ <button class="btn primary schedule-add" id="newGeneralSchedule">＋ Buat jadwal</button>
 </div>
 
 <div class="dashboard-grid">
   <div class="stat-card"><div class="stat-label">Mengajar</div><div class="stat-value" id="schTeaching">0</div></div>
   <div class="stat-card"><div class="stat-label">Kuliah</div><div class="stat-value" id="schCollege">0</div></div>
-  <div class="stat-card"><div class="stat-label">Kegiatan</div><div class="stat-value" id="schOther">0</div></div>
+  <div class="stat-card"><div class="stat-label">Kegiatan</div><div class="stat-value" id="schOther">0</div></div><div class="stat-card"><div class="stat-label">Target Tugas / Skripsi</div><div class="stat-value" id="schTarget">0</div></div>
   <div class="stat-card"><div class="stat-label">Bulan Ini</div><div class="stat-value" id="schMonth">0</div></div>
 </div>
 
-<div class="dash-panel" style="margin-bottom:16px">
-  <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-    <select id="scheduleFilterType" style="max-width:190px">
-      <option value="all">Semua Jadwal</option>
-      <option value="teaching">Mengajar</option>
-      <option value="college">Kuliah</option>
-      <option value="other">Kegiatan Lainnya</option>
-    </select>
-    <input type="date" id="scheduleFilterDate">
-    <button class="btn light" id="clearScheduleFilter">Reset</button>
-  </div>
+<div class="schedule-tools dash-panel">
+ <div class="schedule-view-tabs" role="tablist"><button class="schedule-tab active" data-schedule-view="agenda">☷ Agenda</button><button class="schedule-tab" data-schedule-view="week">▦ Tampilan mingguan</button></div>
+ <div class="schedule-filters"><label class="filter-field"><span>Jenis jadwal</span><select id="scheduleFilterType"><option value="all">Semua jadwal</option><option value="teaching">Mengajar</option><option value="college">Kuliah</option><option value="other">Kegiatan lainnya</option><option value="target">Target tugas / skripsi</option></select></label><label class="filter-field"><span>Pilih tanggal</span><input type="date" id="scheduleFilterDate"></label><button class="btn light" id="clearScheduleFilter">Reset filter</button></div>
 </div>
-
-<div class="dash-panel">
-  <div id="scheduleData" class="schedule-list"></div>
-</div>
+<div id="scheduleAgendaView" class="dash-panel schedule-results"><div class="schedule-results-head"><div><h2>Agenda terjadwal</h2><p id="scheduleResultCount">Semua jadwal ditampilkan berdasarkan tanggal.</p></div></div><div id="scheduleData" class="schedule-list"></div></div>
+<div id="scheduleWeekView" class="dash-panel schedule-results" hidden><div class="week-head"><div><h2>Agenda mingguan</h2><p id="weekRangeLabel">Jadwal dalam minggu ini</p></div><div class="week-nav"><button class="iconbtn" id="prevWeek" aria-label="Minggu sebelumnya">←</button><button class="btn light" id="thisWeek">Minggu ini</button><button class="iconbtn" id="nextWeek" aria-label="Minggu berikutnya">→</button></div></div><div id="scheduleWeekGrid" class="week-grid"></div></div>
 </section>
 
 <section class="view" id="page-students">
-<h1 style="margin:0">Siswa & Sekolah</h1><div style="color:var(--muted);font-size:13px;margin:4px 0 18px">Daftar siswa, sekolah, center, dan kegiatan.</div>
-<div class="dash-panel"><div id="studentData"></div></div>
+ <div class="portfolio-hero"><div><div class="eyebrow">KARYA • PENGALAMAN • PENCAPAIAN</div><h1>Portofolio Saya</h1><p>Dokumentasikan pengalaman, proyek, kegiatan, sertifikat, dan pencapaian dalam satu galeri profesional.</p></div><button class="btn primary" id="addPortfolioBtn">＋ Tambah portofolio</button></div>
+ <div class="portfolio-toolbar"><div class="portfolio-search"><span>⌕</span><input id="portfolioSearch" placeholder="Cari pengalaman, kegiatan, atau pencapaian..."></div><select id="portfolioCategoryFilter"><option value="all">Semua kategori</option><option value="Pengalaman">Pengalaman</option><option value="Proyek">Proyek</option><option value="Kegiatan">Kegiatan</option><option value="Sertifikat">Sertifikat</option><option value="Pencapaian">Pencapaian</option><option value="Lainnya">Lainnya</option></select><span class="portfolio-count" id="portfolioCount">0 item</span></div>
+ <div class="portfolio-grid" id="portfolioGrid"></div>
 </section>
 
 <section class="view" id="page-income">
-<div style="display:flex;justify-content:space-between;align-items:end"><div><h1 style="margin:0">Pemasukan</h1><div style="color:var(--muted);font-size:13px">Pemasukan dari seluruh pekerjaan.</div></div><button class="btn primary" id="newIncome">＋ Tambah</button></div>
-<div class="dashboard-grid"><div class="stat-card"><div class="stat-label">Total Pemasukan</div><div class="stat-value" id="incomeTotal">Rp0</div></div></div>
-<div class="dash-panel"><div id="incomeData"></div></div>
+ <div class="finance-hero income-hero"><div><div class="eyebrow">FINANCIAL TRACKER</div><h1>Pemasukan</h1><p>Catat seluruh sumber pendapatan, honor mengajar, proyek, dan pekerjaan tambahan.</p></div><button class="btn finance-add" id="newIncome">＋ Catat pemasukan</button></div>
+ <div class="finance-stats"><div class="finance-stat"><span class="finance-stat-icon green">↗</span><div><small>Total pemasukan</small><strong id="incomeTotal">Rp0</strong></div></div><div class="finance-stat"><span class="finance-stat-icon blue">▦</span><div><small>Pemasukan bulan ini</small><strong id="incomeMonthTotal">Rp0</strong></div></div><div class="finance-stat"><span class="finance-stat-icon amber">#</span><div><small>Jumlah transaksi</small><strong id="incomeCount">0</strong></div></div></div>
+ <div class="dash-panel finance-panel"><div class="finance-toolbar"><div><h2>Riwayat pemasukan</h2><p>Gunakan pencarian dan filter untuk menemukan transaksi.</p></div><div class="finance-filters"><input id="incomeSearch" placeholder="Cari sumber..."/><input type="month" id="incomeMonthFilter"/><select id="incomeCategoryFilter"><option value="all">Semua kategori</option><option>Honor mengajar</option><option>Freelance</option><option>Gaji</option><option>Bisnis</option><option>Bonus</option><option>Lainnya</option></select></div></div><div id="incomeData"></div></div>
 </section>
 
 <section class="view" id="page-expense">
-<div style="display:flex;justify-content:space-between;align-items:end"><div><h1 style="margin:0">Pengeluaran</h1><div style="color:var(--muted);font-size:13px">Pengeluaran pribadi dan pekerjaan.</div></div><button class="btn primary" id="newExpense">＋ Tambah</button></div>
-<div class="dashboard-grid"><div class="stat-card"><div class="stat-label">Total Pengeluaran</div><div class="stat-value" id="expenseTotal">Rp0</div></div></div>
-<div class="dash-panel"><div id="expenseData"></div></div>
+ <div class="finance-hero expense-hero"><div><div class="eyebrow">FINANCIAL TRACKER</div><h1>Pengeluaran</h1><p>Pantau kebutuhan pribadi, operasional pekerjaan, transportasi, dan pengeluaran rutin.</p></div><button class="btn finance-add" id="newExpense">＋ Catat pengeluaran</button></div>
+ <div class="finance-stats"><div class="finance-stat"><span class="finance-stat-icon red">↘</span><div><small>Total pengeluaran</small><strong id="expenseTotal">Rp0</strong></div></div><div class="finance-stat"><span class="finance-stat-icon blue">▦</span><div><small>Pengeluaran bulan ini</small><strong id="expenseMonthTotal">Rp0</strong></div></div><div class="finance-stat"><span class="finance-stat-icon amber">#</span><div><small>Jumlah transaksi</small><strong id="expenseCount">0</strong></div></div></div>
+ <div class="dash-panel finance-panel"><div class="finance-toolbar"><div><h2>Riwayat pengeluaran</h2><p>Kelola transaksi dan lihat detail pencatatan.</p></div><div class="finance-filters"><input id="expenseSearch" placeholder="Cari keterangan..."/><input type="month" id="expenseMonthFilter"/><select id="expenseCategoryFilter"><option value="all">Semua kategori</option><option>Makan & minum</option><option>Transportasi</option><option>Pendidikan</option><option>Tagihan</option><option>Operasional kerja</option><option>Belanja</option><option>Kesehatan</option><option>Lainnya</option></select></div></div><div id="expenseData"></div></div>
 </section>
 
 <section class="view" id="page-profile">
-<h1 style="margin:0">Profil Saya</h1><div style="color:var(--muted);font-size:13px;margin:4px 0 18px">Informasi diri dan pekerjaan.</div>
-<div class="profile-grid"><div class="dash-panel"><div class="profile-avatar" id="pAvatar">U</div><h2 id="pName">Pengguna</h2><div id="pEmail" style="color:var(--muted)"></div></div>
-<div class="dash-panel"><div class="form-grid">
-<label>Nama Lengkap<input id="pFullName"></label><label>Nomor HP<input id="pPhone"></label>
-<label>Alamat<input id="pAddress"></label><label>Pekerjaan / Profesi<input id="pJob"></label>
-<label class="full">Bio<input id="pBio"></label>
-</div><button class="btn primary" id="saveProfile" style="margin-top:14px">Simpan Profil</button></div></div>
+ <div class="profile-page-head"><div><div class="eyebrow">PERSONAL BRANDING</div><h1 style="margin:4px 0 5px">Profil & CV Digital</h1><p>Bangun profil profesional seperti CV interaktif yang dapat diperbarui kapan saja.</p></div><button class="btn primary" id="saveProfileTop">✓ Simpan Perubahan</button></div>
+ <div class="cv-layout">
+  <div class="cv-editor">
+   <div class="dash-panel profile-editor-card">
+    <div class="profile-section-title"><span class="profile-step">01</span><div><h2>Identitas & Foto Profil</h2><p>Informasi utama yang tampil pada CV digital.</p></div></div>
+    <div class="profile-photo-row"><div class="profile-avatar profile-avatar-large" id="pAvatar"><span id="pInitial">U</span><img id="pAvatarImg" alt="Foto profil" hidden></div><div class="profile-photo-info"><strong>Foto profil</strong><p>Gunakan foto formal yang jelas. JPG, PNG, atau WebP.</p><label class="btn light upload-profile-btn" for="pPhotoInput">↥ Unggah foto</label><button type="button" class="text-btn" id="removeProfilePhoto">Hapus foto</button><input id="pPhotoInput" type="file" accept="image/*" hidden></div></div>
+    <div class="form-grid profile-form-grid">
+     <label>Nama lengkap<input id="pFullName" placeholder="Nama sesuai identitas" autocomplete="name"></label><label>Jabatan / profesi<input id="pJob" placeholder="Contoh: Pengajar & Graphic Designer"></label>
+     <label>Email<input id="pProfileEmail" type="email" placeholder="email@contoh.com"></label><label>Nomor telepon<input id="pPhone" type="tel" placeholder="08xxxxxxxxxx" autocomplete="tel"></label>
+     <label class="full">Domisili / alamat<input id="pAddress" placeholder="Kota atau alamat singkat" autocomplete="address-level2"></label>
+     <label>Website / portofolio<input id="pWebsite" type="url" placeholder="https://... "></label><label>LinkedIn<input id="pLinkedin" type="url" placeholder="https://linkedin.com/in/... "></label>
+    </div>
+   </div>
+   <div class="dash-panel profile-editor-card">
+    <div class="profile-section-title"><span class="profile-step">02</span><div><h2>Ringkasan Profesional</h2><p>Perkenalkan diri, fokus, dan nilai yang kamu tawarkan.</p></div></div>
+    <label class="profile-field-label">Tentang saya / profil singkat<textarea id="pBio" rows="4" placeholder="Tuliskan ringkasan pengalaman, minat, keahlian, dan tujuan profesional... "></textarea></label>
+   </div>
+   <div class="dash-panel profile-editor-card">
+    <div class="profile-section-title"><span class="profile-step">03</span><div><h2>Pendidikan</h2><p>Satu entri per baris, misalnya: Program Studi — Universitas (Tahun).</p></div></div>
+    <label class="profile-field-label">Riwayat pendidikan<textarea id="pEducation" rows="3" placeholder="Hukum Tata Negara — UIN Sunan Gunung Djati Bandung (2022–sekarang)"></textarea></label>
+   </div>
+   <div class="dash-panel profile-editor-card">
+    <div class="profile-section-title"><span class="profile-step">04</span><div><h2>Pengalaman & Proyek</h2><p>Masukkan jabatan, organisasi, pekerjaan, atau proyek. Satu pengalaman per baris.</p></div></div>
+    <label class="profile-field-label">Pengalaman kerja / organisasi<textarea id="pExperience" rows="4" placeholder="Pengajar Robotik — Sekolah ABC (2024–2026)&#10;Sekretaris Umum — Organisasi XYZ (2025–2026)"></textarea></label>
+   </div>
+   <div class="dash-panel profile-editor-card">
+    <div class="profile-section-title"><span class="profile-step">05</span><div><h2>Keahlian & Pencapaian</h2><p>Lengkapi kemampuan, sertifikat, penghargaan, dan bahasa.</p></div></div>
+    <div class="form-grid profile-form-grid">
+     <label class="full">Keahlian <small>Pisahkan dengan koma</small><textarea id="pSkills" rows="2" placeholder="Komunikasi, desain grafis, coding, manajemen proyek"></textarea></label>
+     <label class="full">Pencapaian / penghargaan<textarea id="pAchievements" rows="3" placeholder="Penghargaan, target tercapai, hasil proyek, atau kontribusi penting"></textarea></label>
+     <label class="full">Sertifikat / pelatihan<textarea id="pCertificates" rows="3" placeholder="Nama sertifikat — penyelenggara (tahun)"></textarea></label>
+     <label class="full">Bahasa<textarea id="pLanguages" rows="2" placeholder="Bahasa Indonesia (aktif), Bahasa Inggris (menengah)"></textarea></label>
+    </div>
+   </div>
+   <div class="profile-save-row"><span id="profileSaveStatus">Perubahan belum disimpan</span><button class="btn primary" id="saveProfile" type="button">✓ Simpan Profil</button></div>
+  </div>
+  <aside class="cv-preview-wrap"><div class="cv-preview-label"><span>LIVE PREVIEW</span><span class="preview-live-dot"></span></div><article class="cv-preview" id="cvPreview">
+   <div class="cv-preview-top"><div class="cv-preview-avatar" id="cvAvatar"><span id="cvInitial">U</span><img id="cvAvatarImg" alt="Foto profil CV" hidden></div><div><h2 id="cvName">Nama Lengkap</h2><p id="cvJob">Jabatan / Profesi</p></div></div>
+   <div class="cv-contact" id="cvContact"></div><div class="cv-divider"></div>
+   <section class="cv-preview-section" id="cvBioSection"><h3>PROFIL</h3><p id="cvBio">Ringkasan profesional akan tampil di sini.</p></section>
+   <section class="cv-preview-section" id="cvEducationSection"><h3>PENDIDIKAN</h3><div id="cvEducation" class="cv-entry-list"><span class="cv-placeholder">Riwayat pendidikan belum diisi.</span></div></section>
+   <section class="cv-preview-section" id="cvExperienceSection"><h3>PENGALAMAN</h3><div id="cvExperience" class="cv-entry-list"><span class="cv-placeholder">Pengalaman akan tampil di sini.</span></div></section>
+   <section class="cv-preview-section" id="cvSkillsSection"><h3>KEAHLIAN</h3><div id="cvSkills" class="cv-skill-list"></div></section>
+   <section class="cv-preview-section" id="cvAchievementsSection"><h3>PENCAPAIAN</h3><div id="cvAchievements" class="cv-entry-list"></div></section>
+   <section class="cv-preview-section" id="cvCertificatesSection"><h3>SERTIFIKAT & PELATIHAN</h3><div id="cvCertificates" class="cv-entry-list"></div></section>
+   <section class="cv-preview-section" id="cvLanguagesSection"><h3>BAHASA</h3><div id="cvLanguages" class="cv-entry-list"></div></section>
+  </article><p class="cv-preview-note">Pratinjau diperbarui otomatis saat kamu mengedit. Simpan untuk menyimpan perubahan.</p></aside>
+ </div>
 </section>
 </div></div></div>
 
@@ -472,6 +775,28 @@ const typeOf=n=>{
 const typeLabel=t=>({school:"Sekolah",private:"Private",event:"Event/Center"}[t]||t);
 const toast=(s)=>{const e=document.getElementById("toast");e.textContent=s;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),1800)};
 
+function renderMonthlyIncome(){
+ const selector=document.getElementById("incomeMonthSelect");
+ if(!selector)return;
+ const now=new Date(), currentKey=now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0");
+ if(!selector.value)selector.value=currentKey;
+ const selected=selector.value||currentKey;
+ const monthly=data.filter(x=>String(x.date||"").slice(0,7)===selected);
+ const honor=monthly.reduce((a,x)=>a+Number(x.honor||0),0);
+ const transport=monthly.reduce((a,x)=>a+Number(x.transport||0),0);
+ const label=selected?new Date(selected+"-01T00:00:00").toLocaleDateString("id-ID",{month:"long",year:"numeric"}):"Bulan dipilih";
+ document.getElementById("monthlyIncomeLabel").textContent="Total "+label;
+ document.getElementById("monthlyIncomeTotal").textContent=rupiah(honor+transport);
+ document.getElementById("monthlyHonor").textContent=rupiah(honor);
+ document.getElementById("monthlyTransport").textContent=rupiah(transport);
+ const keys=[];
+ for(let i=5;i>=0;i--){const d=new Date(now.getFullYear(),now.getMonth()-i,1);keys.push({key:d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0"),label:d.toLocaleDateString("id-ID",{month:"short"})});}
+ const vals=keys.map(k=>data.filter(x=>String(x.date||"").slice(0,7)===k.key).reduce((a,x)=>a+Number(x.honor||0)+Number(x.transport||0),0));
+ const max=Math.max(...vals,1);
+ document.getElementById("monthlyIncomeBars").innerHTML=keys.map((k,i)=>`<div class="month-bar-item" title="${k.label}: ${rupiah(vals[i])}"><div style="font-size:9px;font-weight:700;margin-bottom:4px">${vals[i]?Math.round(vals[i]/1000)+"k":"—"}</div><div class="month-bar" style="height:${Math.max(vals[i]/max*95,3)}px"></div><div class="month-bar-label">${k.label}</div></div>`).join("");
+}
+document.getElementById("incomeMonthSelect")?.addEventListener("change",renderMonthlyIncome);
+
 function renderStats(){
  const sessions=data.length, honor=data.reduce((a,x)=>a+Number(x.honor||0),0), transport=data.reduce((a,x)=>a+Number(x.transport||0),0);
  const unique=new Set(data.map(x=>x.name)).size;
@@ -565,7 +890,7 @@ function renderStudents(){
     ? rows.map(x=>`<tr><td><b>${escapeHtml(x.name)}</b></td><td>${escapeHtml(x.program)}</td><td>${escapeHtml(x.mode)}</td><td>${escapeHtml(x.note)}</td><td>${x.sessions}</td><td class="money">${rupiah(x.honor)}</td></tr>`).join("")
     : `<tr><td colspan="6" class="empty">Belum ada siswa / sekolah.</td></tr>`;
 }
-function render(){renderStats();renderCalendar();renderChart();renderTable();renderStudents()}
+function render(){renderStats();renderCalendar();renderChart();renderTable();renderStudents();renderMonthlyIncome()}
 
 function populateNameOptions(selected=""){refreshNameOptions(selected)}
 
@@ -728,12 +1053,15 @@ if(supabaseReady){
       <button class="iconbtn" id="closeGeneralSchedule">✕</button>
     </div>
     <form id="generalScheduleForm">
+      <input type="hidden" id="gsEditId" value="">
+      <div class="form-intro"><span class="form-icon">✦</span><div><strong id="scheduleModalHeading">Rencanakan kegiatan</strong><small>Lengkapi detail agar agenda lebih mudah dipantau.</small></div></div>
       <div class="form-grid">
         <label>Jenis Jadwal
           <select id="gsType" required>
             <option value="teaching">Mengajar</option>
             <option value="college">Kuliah</option>
             <option value="other">Kegiatan Lainnya</option>
+            <option value="target">Target Tugas / Skripsi</option>
           </select>
         </label>
         <label>Nama / Judul
@@ -742,12 +1070,7 @@ if(supabaseReady){
         <label>Tanggal
           <input type="date" id="gsDate" required>
         </label>
-        <label>Jam Mulai
-          <input type="time" id="gsStart">
-        </label>
-        <label>Jam Selesai
-          <input type="time" id="gsEnd">
-        </label>
+        <div class="time-field full"><div class="time-label"><span>⏱ Waktu kegiatan</span><small>Pilih jam mulai dan selesai</small></div><div class="time-range"><label class="time-input-wrap"><span>Mulai</span><input type="time" id="gsStart" step="300" aria-label="Jam mulai"></label><div class="time-arrow">→</div><label class="time-input-wrap"><span>Selesai</span><input type="time" id="gsEnd" step="300" aria-label="Jam selesai"></label><div class="duration-chip" id="gsDuration">Atur durasi</div></div><div class="field-hint" id="gsTimeHint">Contoh: 08.00 sampai 10.00</div></div>
         <label>Lokasi
           <input id="gsLocation" placeholder="Contoh: Kampus / Sekolah / Online">
         </label>
@@ -761,13 +1084,16 @@ if(supabaseReady){
             <option value="cancelled">Dibatalkan</option>
           </select>
         </label>
+        <label>Prioritas
+          <select id="gsPriority"><option value="normal">Normal</option><option value="high">Tinggi</option><option value="urgent">Mendesak</option></select>
+        </label>
         <label class="full">Catatan
           <input id="gsNote" placeholder="Opsional">
         </label>
       </div>
       <div class="modal-actions">
         <button type="button" class="btn light" id="cancelGeneralSchedule">Batal</button>
-        <button class="btn primary">Simpan Jadwal</button>
+        <button class="btn primary" id="saveGeneralSchedule">✓ Simpan jadwal</button>
       </div>
     </form>
   </div>
@@ -803,60 +1129,141 @@ function scheduleAll(){
  return teaching.concat(scheduleExtraData());
 }
 function scheduleLabel(type){
- return type==="teaching"?"Mengajar":type==="college"?"Kuliah":"Kegiatan";
+ return type==="teaching"?"Mengajar":type==="college"?"Kuliah":type==="target"?"Target tugas / skripsi":"Kegiatan";
 }
-function refreshSchedule(){
- const all=scheduleAll();
+function formatDateID(value,opts={weekday:"short",day:"numeric",month:"short"}){
+ if(!value)return "Tanggal belum diatur";const d=new Date(value+"T12:00:00");return isNaN(d)?value:d.toLocaleDateString("id-ID",opts);
+}
+function scheduleStatusLabel(status){return status==="done"?"Selesai":status==="cancelled"?"Dibatalkan":"Terjadwal"}
+function scheduleMatchesFilters(all){
  const type=document.getElementById("scheduleFilterType")?.value||"all";
  const date=document.getElementById("scheduleFilterDate")?.value||"";
- const filtered=all.filter(x=>(type==="all"||x.source===type)&&(!date||x.date===date))
-   .sort((a,b)=>(String(a.date)+" "+String(a.start)).localeCompare(String(b.date)+" "+String(b.start)));
-
+ return all.filter(x=>(type==="all"||x.source===type)&&(!date||x.date===date))
+ .sort((a,b)=>(String(a.date)+" "+String(a.start||"23:59")).localeCompare(String(b.date)+" "+String(b.start||"23:59")));
+}
+function renderScheduleWeek(){
+ const container=document.getElementById("scheduleWeekGrid");if(!container)return;
+ const start=new Date();start.setHours(0,0,0,0);start.setDate(start.getDate()-((start.getDay()+6)%7)+(window.scheduleWeekOffset||0)*7);
+ const end=new Date(start);end.setDate(start.getDate()+6);
+ const fmt=d=>d.toLocaleDateString("id-ID",{day:"numeric",month:"short"});
+ document.getElementById("weekRangeLabel").textContent=fmt(start)+" – "+fmt(end)+" "+end.getFullYear();
+ const all=scheduleMatchesFilters(scheduleAll());
+ const days=["Senin","Selasa","Rabu","Kamis","Jumat","Sabtu","Minggu"];
+ container.innerHTML=days.map((name,i)=>{const day=new Date(start);day.setDate(start.getDate()+i);const iso=day.getFullYear()+"-"+String(day.getMonth()+1).padStart(2,"0")+"-"+String(day.getDate()).padStart(2,"0");const events=all.filter(x=>x.date===iso);const today=iso===new Date().toLocaleDateString("en-CA");return `<div class="week-day ${today?"is-today":""}"><div class="week-day-head"><span>${name}</span><strong>${day.getDate()}</strong></div>${events.length?events.map(x=>`<div class="week-event ${escapeHtml(x.source)}"><small>${escapeHtml(x.start||"Tanpa jam")}${x.end?" – "+escapeHtml(x.end):""}</small><strong>${escapeHtml(x.title||"Kegiatan")}</strong></div>`).join(""):'<div class="week-empty">Tidak ada agenda</div>'}</div>`}).join("");
+}
+function refreshSchedule(){
+ const all=scheduleAll();const filtered=scheduleMatchesFilters(all);
  const month=thisMonth();
  document.getElementById("schTeaching").textContent=all.filter(x=>x.source==="teaching").length;
  document.getElementById("schCollege").textContent=all.filter(x=>x.source==="college").length;
  document.getElementById("schOther").textContent=all.filter(x=>x.source==="other").length;
- document.getElementById("schMonth").textContent=all.filter(x=>monthValue(x.date)===month).length;
-
+ document.getElementById("schTarget").textContent=all.filter(x=>x.source==="target").length;
+ document.getElementById("schMonth").textContent=all.filter(x=>month(x.date)===month).length;
+ const count=document.getElementById("scheduleResultCount");if(count)count.textContent=`${filtered.length} agenda ditemukan${document.getElementById("scheduleFilterDate").value?" pada "+formatDateID(document.getElementById("scheduleFilterDate").value,{day:"numeric",month:"long",year:"numeric"}):""}.`;
  document.getElementById("scheduleData").innerHTML=filtered.length?filtered.map(x=>`
- <div class="schedule-item">
-   <div style="min-width:0">
-     <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap">
-       <b>${escapeHtml(x.title||"Kegiatan")}</b>
-       <span style="font-size:10px;padding:3px 7px;border-radius:99px;background:#eef3ff;color:#2457d6">${scheduleLabel(x.source)}</span>
-     </div>
-     <div style="font-size:11px;color:var(--muted);margin-top:4px">
-       ${escapeHtml(x.date||"")}${x.start?` • ${escapeHtml(x.start)}${x.end?"–"+escapeHtml(x.end):""}`:""}
-       ${x.location?` • ${escapeHtml(x.location)}`:""}
-     </div>
-     ${x.person?`<div style="font-size:11px;margin-top:3px">${escapeHtml(x.person)}</div>`:""}
-     ${x.note?`<div style="font-size:11px;color:var(--muted);margin-top:3px">${escapeHtml(x.note)}</div>`:""}
+ <div class="schedule-item" data-kind="${escapeHtml(x.source||"other")}">
+   <div>
+     <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap"><b>${escapeHtml(x.title||"Kegiatan")}</b><span class="status-pill status-${escapeHtml(x.status||"planned")}">${scheduleStatusLabel(x.status)}</span></div>
+     <div class="schedule-meta"><span class="schedule-date-chip">▣ ${escapeHtml(formatDateID(x.date,{weekday:"long",day:"numeric",month:"long",year:"numeric"}))}</span>${x.start?`<span class="schedule-time">◷ ${escapeHtml(x.start)}${x.end?" – "+escapeHtml(x.end):""}</span>`:""}<span class="schedule-date-chip">${scheduleLabel(x.source)}</span>${x.priority?`<span class="schedule-date-chip">Prioritas: ${x.priority==="urgent"?"Mendesak":x.priority==="high"?"Tinggi":"Normal"}</span>`:""}</div>
+     ${x.location?`<div style="font-size:11px;color:#8589a5;margin-top:8px">⌖ ${escapeHtml(x.location)}</div>`:""}
+     ${x.person?`<div style="font-size:11px;color:#8589a5;margin-top:4px">PIC: ${escapeHtml(x.person)}</div>`:""}
+     ${x.note?`<div style="font-size:11px;color:#777b9b;margin-top:6px;line-height:1.5">${escapeHtml(x.note)}</div>`:""}
    </div>
-   <div style="text-align:right;white-space:nowrap">
-     ${x.honor?`<b>${money(x.honor)}</b>`:""}
-     ${x.source!=="teaching"?`<button class="iconbtn delete-extra-schedule" data-id="${escapeHtml(String(x.id))}" title="Hapus">🗑</button>`:""}
-   </div>
- </div>`).join(""):'<div style="color:var(--muted);padding:20px;text-align:center">Belum ada jadwal.</div>';
-
- document.querySelectorAll(".delete-extra-schedule").forEach(btn=>btn.onclick=()=>{
-   const list=scheduleExtraData().filter(x=>String(x.id)!==String(btn.dataset.id));
-   storeSet("rekap-schedule-extra",list);refreshSchedule();refreshDashboard();toast("Jadwal dihapus.");
- });
+   <div class="schedule-actions">${x.honor?`<b style="font-size:12px;color:#16866f">${money(x.honor)}</b>`:""}${x.source!=="teaching"?`<button class="iconbtn edit-extra-schedule" data-id="${escapeHtml(String(x.id))}" title="Edit jadwal" aria-label="Edit jadwal">✎</button><button class="iconbtn toggle-extra-status" data-id="${escapeHtml(String(x.id))}" title="Ubah status" aria-label="Ubah status">${x.status==="done"?"↺":"✓"}</button><button class="iconbtn delete-extra-schedule" data-id="${escapeHtml(String(x.id))}" title="Hapus jadwal" aria-label="Hapus jadwal">⌫</button>`:""}</div>
+ </div>`).join(""):'<div class="empty"><div style="font-size:30px;margin-bottom:8px">▦</div><b>Belum ada agenda</b><div style="font-size:12px;margin-top:5px">Coba ubah filter atau tambahkan jadwal baru.</div></div>';
+ document.querySelectorAll(".delete-extra-schedule").forEach(btn=>btn.onclick=()=>{if(!confirm("Hapus jadwal ini?"))return;const list=scheduleExtraData().filter(x=>String(x.id)!==String(btn.dataset.id));set("rekap-schedule-extra",list);refreshSchedule();refreshDashboard();toast("Jadwal dihapus.")});
+ document.querySelectorAll(".edit-extra-schedule").forEach(btn=>btn.onclick=()=>editGeneralSchedule(btn.dataset.id));
+ document.querySelectorAll(".toggle-extra-status").forEach(btn=>btn.onclick=()=>{const list=scheduleExtraData().map(x=>String(x.id)===String(btn.dataset.id)?{...x,status:x.status==="done"?"planned":"done"}:x);set("rekap-schedule-extra",list);refreshSchedule();refreshDashboard();toast("Status jadwal diperbarui.")});
+ renderScheduleWeek();
+}
+function editGeneralSchedule(id){
+ const x=scheduleExtraData().find(item=>String(item.id)===String(id));if(!x)return;
+ const fields={gsEditId:x.id,gsType:x.source,gsTitle:x.title,gsDate:x.date,gsStart:x.start,gsEnd:x.end,gsLocation:x.location,gsPerson:x.person,gsStatus:x.status||"planned",gsPriority:x.priority||"normal",gsNote:x.note};
+ Object.entries(fields).forEach(([id,value])=>{const el=document.getElementById(id);if(el)el.value=value||""});
+ document.getElementById("scheduleModalHeading").textContent="Edit jadwal";document.getElementById("saveGeneralSchedule").textContent="✓ Simpan perubahan";updateDuration();document.getElementById("generalScheduleModal").classList.add("open");
+}
+function updateDuration(){
+ const a=document.getElementById("gsStart")?.value,b=document.getElementById("gsEnd")?.value,out=document.getElementById("gsDuration"),hint=document.getElementById("gsTimeHint");if(!out)return;
+ if(!a||!b){out.textContent="Atur durasi";hint.textContent="Contoh: 08.00 sampai 10.00";return}
+ const start=Number(a.slice(0,2))*60+Number(a.slice(3)),end=Number(b.slice(0,2))*60+Number(b.slice(3));let diff=end-start;if(diff<0)diff+=1440;
+ out.textContent=`${Math.floor(diff/60)} jam ${diff%60?diff%60+" menit":""}`.trim();hint.textContent=diff===0?"Jam mulai dan selesai tidak boleh sama.":diff>720?"Durasi lebih dari 12 jam, pastikan sudah benar.":"Durasi kegiatan otomatis dihitung.";
 }
 
+function financeCategories(type){return type==="income"?["Honor mengajar","Freelance","Gaji","Bisnis","Bonus","Investasi","Lainnya"]:["Makan & minum","Transportasi","Pendidikan","Tagihan","Operasional kerja","Belanja","Kesehatan","Hiburan","Tabungan","Lainnya"]}
 function refreshFinance(){
- const inc=get("rekap-income"),exp=get("rekap-expense");
- document.getElementById("incomeTotal").textContent=money(inc.reduce((a,x)=>a+Number(x.amount||0),0));
- document.getElementById("expenseTotal").textContent=money(exp.reduce((a,x)=>a+Number(x.amount||0),0));
- document.getElementById("incomeData").innerHTML=inc.length?`<table class="finance-table"><thead><tr><th>Tanggal</th><th>Kategori</th><th>Sumber</th><th>Nominal</th></tr></thead><tbody>${inc.slice().reverse().map(x=>`<tr><td>${escapeHtml(x.date)}</td><td>${escapeHtml(x.category)}</td><td>${escapeHtml(x.source)}</td><td><b>${money(x.amount)}</b></td></tr>`).join("")}</tbody></table>`:'<div style="padding:20px;color:var(--muted)">Belum ada pemasukan.</div>';
- document.getElementById("expenseData").innerHTML=exp.length?`<table class="finance-table"><thead><tr><th>Tanggal</th><th>Kategori</th><th>Keterangan</th><th>Nominal</th></tr></thead><tbody>${exp.slice().reverse().map(x=>`<tr><td>${escapeHtml(x.date)}</td><td>${escapeHtml(x.category)}</td><td>${escapeHtml(x.source)}</td><td><b>${money(x.amount)}</b></td></tr>`).join("")}</tbody></table>`:'<div style="padding:20px;color:var(--muted)">Belum ada pengeluaran.</div>';
+ const inc=get("rekap-income"),exp=get("rekap-expense"),m=thisMonth();
+ const sum=a=>a.reduce((n,x)=>n+Number(x.amount||0),0);
+ const setText=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=v};
+ setText("incomeTotal",money(sum(inc)));setText("expenseTotal",money(sum(exp)));
+ setText("incomeMonthTotal",money(sum(inc.filter(x=>month(x.date)===m))));setText("expenseMonthTotal",money(sum(exp.filter(x=>month(x.date)===m))));
+ setText("incomeCount",inc.length);setText("expenseCount",exp.length);
+ renderFinanceList("income",inc);renderFinanceList("expense",exp);
+}
+function renderFinanceList(type,arr){
+ const cap=type==="income"?"Pemasukan":"Pengeluaran",container=document.getElementById(type+"Data");if(!container)return;
+ const q=(document.getElementById(type+"Search")?.value||"").toLowerCase().trim(),mo=document.getElementById(type+"MonthFilter")?.value||"",cat=document.getElementById(type+"CategoryFilter")?.value||"all";
+ const rows=arr.map((x,i)=>({...x,_i:i})).filter(x=>(!q||String(x.source||"").toLowerCase().includes(q)||String(x.note||"").toLowerCase().includes(q))&&(!mo||month(x.date)===mo)&&(cat==="all"||x.category===cat)).sort((a,b)=>String(b.date||"").localeCompare(String(a.date||""))||b._i-a._i);
+ container.innerHTML=rows.length?`<div class="finance-table-wrap"><table class="finance-table"><thead><tr><th>Tanggal</th><th>Detail transaksi</th><th>Kategori</th><th>Status</th><th>Nominal</th><th>Aksi</th></tr></thead><tbody>${rows.map(x=>`<tr><td>${escapeHtml(x.date||"-")}</td><td><div class="finance-source">${escapeHtml(x.source||"Tanpa keterangan")}</div><div class="finance-sub">${escapeHtml(x.method||"Tunai")}${x.note?" · "+escapeHtml(x.note):""}</div></td><td>${escapeHtml(x.category||"Lainnya")}</td><td><span class="finance-badge ${(x.status||"paid")==="pending"?"pending":""}">${(x.status||"paid")==="pending"?"Menunggu":"Selesai"}</span></td><td class="finance-amount ${type}">${money(x.amount)}</td><td><div class="actions"><button class="iconbtn finance-edit" data-type="${type}" data-index="${x._i}" aria-label="Edit transaksi">✎</button><button class="iconbtn finance-delete" data-type="${type}" data-index="${x._i}" aria-label="Hapus transaksi">⌫</button></div></td></tr>`).join("")}</tbody></table></div>`:`<div class="finance-empty"><div style="font-size:30px;margin-bottom:9px">${type==="income"?"↗":"↘"}</div><b>Belum ada ${cap.toLowerCase()} yang cocok</b>Ubah filter atau catat transaksi baru untuk mulai mengelola keuangan.</div>`;
+ container.querySelectorAll(".finance-edit").forEach(b=>b.onclick=()=>openFinanceForm(b.dataset.type,Number(b.dataset.index)));
+ container.querySelectorAll(".finance-delete").forEach(b=>b.onclick=()=>{if(!confirm("Hapus transaksi ini? Tindakan ini tidak dapat dibatalkan."))return;const keyName=b.dataset.type==="income"?"rekap-income":"rekap-expense",list=get(keyName);list.splice(Number(b.dataset.index),1);set(keyName,list);refreshFinance();refreshDashboard();toast("Transaksi dihapus.")});
+}
+function openFinanceForm(type,index=-1){
+ if(!currentUser){toast("Silakan login terlebih dahulu.");return}
+ const editing=index>=0,list=get(type==="income"?"rekap-income":"rekap-expense"),x=editing?(list[index]||{}):{};
+ document.getElementById("financeForm").reset();document.getElementById("financeType").value=type;document.getElementById("financeEditId").value=editing?String(index):"";
+ document.getElementById("financeModalTitle").textContent=(editing?"Edit ":"Tambah ")+(type==="income"?"pemasukan":"pengeluaran");
+ document.getElementById("financeModalDesc").textContent=type==="income"?"Catat pendapatan dan sumbernya agar rekap lebih rapi.":"Catat biaya dan tujuannya untuk memantau pengeluaran.";
+ const cats=financeCategories(type);if(x.category&&!cats.includes(x.category))cats.push(x.category);document.getElementById("financeCategory").innerHTML=cats.map(c=>`<option>${escapeHtml(c)}</option>`).join("");
+ document.getElementById("financeDate").value=x.date||new Date().toLocaleDateString("en-CA");document.getElementById("financeAmount").value=x.amount||"";document.getElementById("financeSource").value=x.source||"";document.getElementById("financeCategory").value=cats.includes(x.category)?x.category:(type==="income"?"Honor mengajar":"Lainnya");document.getElementById("financeMethod").value=x.method||"Tunai";document.getElementById("financeStatus").value=x.status||"paid";document.getElementById("financeNote").value=x.note||"";
+ document.getElementById("financeModal").classList.add("open");setTimeout(()=>document.getElementById("financeAmount").focus(),50);
+}
+function submitFinanceForm(e){
+ e.preventDefault();const type=document.getElementById("financeType").value,keyName=type==="income"?"rekap-income":"rekap-expense",list=get(keyName),idx=document.getElementById("financeEditId").value,amount=Number(document.getElementById("financeAmount").value);
+ if(!amount||amount<1){toast("Masukkan nominal lebih dari nol.");return}
+ const item={date:document.getElementById("financeDate").value,source:document.getElementById("financeSource").value.trim(),amount,category:document.getElementById("financeCategory").value,method:document.getElementById("financeMethod").value,status:document.getElementById("financeStatus").value,note:document.getElementById("financeNote").value.trim(),updatedAt:new Date().toISOString()};
+ if(!item.date||!item.source){toast("Tanggal dan sumber/keterangan wajib diisi.");return}
+ if(idx!=="")list[Number(idx)]={...list[Number(idx)],...item};else list.push({...item,id:"txn-"+Date.now(),createdAt:new Date().toISOString()});set(keyName,list);
+ document.getElementById("financeModal").classList.remove("open");refreshFinance();refreshDashboard();toast(idx!==""?"Transaksi diperbarui.":"Transaksi berhasil disimpan.");
 }
 
+// Portofolio: data dan dokumentasi disimpan per akun pada browser.
+let portfolioPendingPhoto="";
+function compressPortfolioImage(file){return new Promise((resolve,reject)=>{if(!file||!file.type.startsWith("image/")){reject(new Error("Pilih file gambar yang valid."));return}const reader=new FileReader();reader.onerror=()=>reject(new Error("Foto gagal dibaca."));reader.onload=()=>{const img=new Image();img.onerror=()=>reject(new Error("Foto tidak dapat dibuka."));img.onload=()=>{const max=1400,scale=Math.min(1,max/Math.max(img.width,img.height)),canvas=document.createElement("canvas");canvas.width=Math.max(1,Math.round(img.width*scale));canvas.height=Math.max(1,Math.round(img.height*scale));const ctx=canvas.getContext("2d");ctx.drawImage(img,0,0,canvas.width,canvas.height);resolve(canvas.toDataURL("image/jpeg",.78))};img.src=reader.result};reader.readAsDataURL(file)})}
+function renderPortfolio(){
+ const grid=document.getElementById("portfolioGrid");if(!grid)return;const items=get("rekap-portfolio"),q=(document.getElementById("portfolioSearch")?.value||"").toLowerCase().trim(),cat=document.getElementById("portfolioCategoryFilter")?.value||"all";
+ const filtered=items.map((x,i)=>({...x,_i:i})).filter(x=>(cat==="all"||x.category===cat)&&(!q||[x.title,x.organization,x.description,x.achievement,x.skills,x.category].join(" ").toLowerCase().includes(q))).sort((a,b)=>String(b.date||"").localeCompare(String(a.date||"")));
+ const count=document.getElementById("portfolioCount");if(count)count.textContent=`${filtered.length} item${filtered.length===1?"":""}`;
+ grid.innerHTML=filtered.length?filtered.map(x=>`<article class="portfolio-card"><div class="portfolio-cover">${x.photo?`<img src="${x.photo}" alt="${escapeHtml(x.title)}" loading="lazy">`:`<div class="portfolio-cover-placeholder">✦</div>`}<span class="portfolio-category">${escapeHtml(x.category||"Lainnya")}</span></div><div class="portfolio-card-body"><h3>${escapeHtml(x.title||"Tanpa judul")}</h3><div class="portfolio-org">${escapeHtml(x.organization||"Pengalaman pribadi")}</div><div class="portfolio-date">${x.date?"▣ "+escapeHtml(formatDateID(x.date,{day:"numeric",month:"long",year:"numeric"})):"Tanggal tidak dicantumkan"}</div>${x.description?`<div class="portfolio-desc">${escapeHtml(x.description)}</div>`:""}${x.achievement?`<div class="portfolio-achievement"><b>✦ Pencapaian</b><br>${escapeHtml(x.achievement)}</div>`:""}${x.skills?`<div class="portfolio-tags">${String(x.skills).split(",").map(t=>t.trim()).filter(Boolean).slice(0,8).map(t=>`<span>${escapeHtml(t)}</span>`).join("")}</div>`:""}${x.link?`<div style="margin-top:12px"><a href="${escapeHtml(x.link)}" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:#5148df;font-weight:800">↗ Buka tautan pendukung</a></div>`:""}</div><div class="portfolio-card-actions"><button class="btn light portfolio-edit" data-index="${x._i}">✎ Edit</button><button class="btn danger portfolio-delete" data-index="${x._i}">⌫ Hapus</button></div></article>`).join(""):`<div class="portfolio-empty"><div style="font-size:36px">▧</div><b>${q||cat!=="all"?"Portofolio tidak ditemukan":"Mulai bangun portofolio profesionalmu"}</b><span>${q||cat!=="all"?"Coba ubah kata kunci atau kategori filter.":"Unggah foto kegiatan, tulis pengalaman, dan tambahkan pencapaian pertamamu."}</span>${q||cat!=="all"?"":`<div style="margin-top:16px"><button class="btn primary" id="emptyAddPortfolio">＋ Tambah portofolio pertama</button></div>`}</div>`;
+ grid.querySelectorAll(".portfolio-edit").forEach(b=>b.onclick=()=>openPortfolioForm(Number(b.dataset.index)));grid.querySelectorAll(".portfolio-delete").forEach(b=>b.onclick=()=>{if(!confirm("Hapus item portofolio ini?"))return;const list=get("rekap-portfolio");list.splice(Number(b.dataset.index),1);set("rekap-portfolio",list);renderPortfolio();toast("Portofolio dihapus.")});document.getElementById("emptyAddPortfolio")?.addEventListener("click",()=>openPortfolioForm());
+}
+function openPortfolioForm(index=-1){if(!currentUser){toast("Silakan login terlebih dahulu.");return}const editing=index>=0,items=get("rekap-portfolio"),x=editing?(items[index]||{}):{};document.getElementById("portfolioForm").reset();document.getElementById("portfolioEditId").value=editing?String(index):"";document.getElementById("portfolioModalTitle").textContent=editing?"Edit portofolio":"Tambah portofolio";portfolioPendingPhoto=x.photo||"";document.getElementById("portfolioTitle").value=x.title||"";document.getElementById("portfolioCategory").value=x.category||"Pengalaman";document.getElementById("portfolioOrganization").value=x.organization||"";document.getElementById("portfolioDate").value=x.date||"";document.getElementById("portfolioDescription").value=x.description||"";document.getElementById("portfolioAchievement").value=x.achievement||"";document.getElementById("portfolioSkills").value=x.skills||"";document.getElementById("portfolioLink").value=x.link||"";updatePortfolioPreview(portfolioPendingPhoto);document.getElementById("portfolioModal").classList.add("open")}
+function updatePortfolioPreview(src){const img=document.getElementById("portfolioPreview"),placeholder=document.getElementById("portfolioUploadPlaceholder");if(src){img.src=src;img.hidden=false;placeholder.hidden=true}else{img.removeAttribute("src");img.hidden=true;placeholder.hidden=false}}
+document.getElementById("addPortfolioBtn").onclick=()=>openPortfolioForm();document.getElementById("closePortfolioModal").onclick=()=>document.getElementById("portfolioModal").classList.remove("open");document.getElementById("cancelPortfolio").onclick=()=>document.getElementById("portfolioModal").classList.remove("open");document.getElementById("portfolioSearch").addEventListener("input",renderPortfolio);document.getElementById("portfolioCategoryFilter").addEventListener("change",renderPortfolio);
+document.getElementById("portfolioPhoto").addEventListener("change",async e=>{const file=e.target.files?.[0];if(!file)return;try{portfolioPendingPhoto=await compressPortfolioImage(file);updatePortfolioPreview(portfolioPendingPhoto);toast("Foto siap digunakan.")}catch(err){toast(err.message||"Gagal memproses foto.");e.target.value=""}});
+document.getElementById("portfolioForm").addEventListener("submit",e=>{e.preventDefault();const title=document.getElementById("portfolioTitle").value.trim();if(!title){toast("Judul portofolio wajib diisi.");return}const list=get("rekap-portfolio"),idx=document.getElementById("portfolioEditId").value,item={title,category:document.getElementById("portfolioCategory").value,organization:document.getElementById("portfolioOrganization").value.trim(),date:document.getElementById("portfolioDate").value,description:document.getElementById("portfolioDescription").value.trim(),achievement:document.getElementById("portfolioAchievement").value.trim(),skills:document.getElementById("portfolioSkills").value.trim(),link:document.getElementById("portfolioLink").value.trim(),photo:portfolioPendingPhoto,updatedAt:new Date().toISOString()};try{if(idx!=="")list[Number(idx)]={...list[Number(idx)],...item};else list.push({...item,id:"portfolio-"+Date.now(),createdAt:new Date().toISOString()});set("rekap-portfolio",list);document.getElementById("portfolioModal").classList.remove("open");renderPortfolio();toast(idx!==""?"Portofolio diperbarui.":"Portofolio berhasil ditambahkan.")}catch(err){toast("Penyimpanan gagal. Coba gunakan foto yang lebih kecil.")}});
+
+let profilePendingPhoto="";
+function profileLines(value){return String(value||"").split("\n").map(x=>x.trim()).filter(Boolean)}
+function profileText(id){return document.getElementById(id)?.value?.trim()||""}
+function updateProfilePreview(){
+ const name=profileText("pFullName")||currentUser?.email?.split("@")[0]||"Nama Lengkap",job=profileText("pJob")||"Jabatan / Profesi",email=profileText("pProfileEmail")||currentUser?.email||"",phone=profileText("pPhone"),address=profileText("pAddress"),website=profileText("pWebsite"),linkedin=profileText("pLinkedin"),bio=profileText("pBio"),photo=profilePendingPhoto;
+ const safe=(v)=>escapeHtml(v);const initials=name.trim().charAt(0).toUpperCase()||"U";
+ document.getElementById("pInitial").textContent=initials;document.getElementById("cvInitial").textContent=initials;
+ document.getElementById("pName")&&(document.getElementById("pName").textContent=name);document.getElementById("pEmail")&&(document.getElementById("pEmail").textContent=email);
+ [ ["pAvatarImg","pInitial"],["cvAvatarImg","cvInitial"] ].forEach(([imgId,initialId])=>{const img=document.getElementById(imgId),initial=document.getElementById(initialId);if(photo){img.src=photo;img.hidden=false;initial.hidden=true}else{img.removeAttribute("src");img.hidden=true;initial.hidden=false}});
+ document.getElementById("cvName").textContent=name;document.getElementById("cvJob").textContent=job;
+ const contacts=[];if(email)contacts.push(`<span>✉ ${safe(email)}</span>`);if(phone)contacts.push(`<span>☎ ${safe(phone)}</span>`);if(address)contacts.push(`<span>⌖ ${safe(address)}</span>`);if(website)contacts.push(`<a href="${safe(website)}" target="_blank" rel="noopener noreferrer">↗ Website</a>`);if(linkedin)contacts.push(`<a href="${safe(linkedin)}" target="_blank" rel="noopener noreferrer">↗ LinkedIn</a>`);document.getElementById("cvContact").innerHTML=contacts.join("");
+ const bioEl=document.getElementById("cvBio");bioEl.textContent=bio||"Ringkasan profesional akan tampil di sini.";bioEl.classList.toggle("cv-placeholder",!bio);
+ const groups=[ ["cvEducation","pEducation","cvEducationSection","Riwayat pendidikan belum diisi."],["cvExperience","pExperience","cvExperienceSection","Pengalaman akan tampil di sini."],["cvAchievements","pAchievements","cvAchievementsSection","Belum ada pencapaian yang ditambahkan."],["cvCertificates","pCertificates","cvCertificatesSection","Belum ada sertifikat yang ditambahkan."],["cvLanguages","pLanguages","cvLanguagesSection","Belum ada informasi bahasa."] ];
+ groups.forEach(([target,source,section,empty])=>{const el=document.getElementById(target),items=profileLines(profileText(source));el.innerHTML=items.length?items.map(t=>`<div class="cv-entry">${safe(t)}</div>`).join(""):`<span class="cv-placeholder">${empty}</span>`;document.getElementById(section).hidden=!items.length&&target!=="cvEducation"&&target!=="cvExperience"});
+ const skills=profileText("pSkills").split(",").map(x=>x.trim()).filter(Boolean),skillEl=document.getElementById("cvSkills");skillEl.innerHTML=skills.length?skills.map(x=>`<span class="cv-skill">${safe(x)}</span>`).join(""):`<span class="cv-placeholder">Keahlian akan tampil di sini.</span>`;document.getElementById("cvSkillsSection").hidden=!skills.length;
+ document.getElementById("profileSaveStatus").textContent="Pratinjau diperbarui · belum disimpan";
+}
 function refreshProfile(){
- const p=get("rekap-profile")[0]||{},email=currentUser?.email||"",name=p.fullName||email.split("@")[0]||"Pengguna";
- document.getElementById("pName").textContent=name;document.getElementById("pEmail").textContent=email;document.getElementById("pAvatar").textContent=name[0].toUpperCase();
- document.getElementById("pFullName").value=p.fullName||"";document.getElementById("pPhone").value=p.phone||"";document.getElementById("pAddress").value=p.address||"";document.getElementById("pJob").value=p.job||"";document.getElementById("pBio").value=p.bio||"";
- document.getElementById("dashEmail").textContent=email;
+ const p=get("rekap-profile")[0]||{},email=currentUser?.email||"";
+ const fields={pFullName:"fullName",pPhone:"phone",pAddress:"address",pJob:"job",pBio:"bio",pProfileEmail:"profileEmail",pWebsite:"website",pLinkedin:"linkedin",pEducation:"education",pExperience:"experience",pSkills:"skills",pAchievements:"achievements",pCertificates:"certificates",pLanguages:"languages"};
+ Object.entries(fields).forEach(([id,key])=>{const el=document.getElementById(id);if(el)el.value=p[key]||""});profilePendingPhoto=p.photo||"";
+ document.getElementById("pProfileEmail").placeholder=email||"email@contoh.com";document.getElementById("dashEmail").textContent=email;updateProfilePreview();
 }
 
 function page(p){
@@ -865,28 +1272,21 @@ function page(p){
  
 document.getElementById("newGeneralSchedule").onclick=()=>{
  if(!currentUser){toast("Silakan login terlebih dahulu.");return}
- document.getElementById("generalScheduleForm").reset();
- document.getElementById("gsDate").value=new Date().toISOString().slice(0,10);
- document.getElementById("generalScheduleModal").classList.add("open");
+ document.getElementById("generalScheduleForm").reset();document.getElementById("gsEditId").value="";
+ document.getElementById("gsDate").value=new Date().getFullYear()+"-"+String(new Date().getMonth()+1).padStart(2,"0")+"-"+String(new Date().getDate()).padStart(2,"0");
+ document.getElementById("scheduleModalHeading").textContent="Rencanakan kegiatan";document.getElementById("saveGeneralSchedule").textContent="✓ Simpan jadwal";updateDuration();document.getElementById("generalScheduleModal").classList.add("open");
 };
 document.getElementById("closeGeneralSchedule").onclick=()=>document.getElementById("generalScheduleModal").classList.remove("open");
 document.getElementById("cancelGeneralSchedule").onclick=()=>document.getElementById("generalScheduleModal").classList.remove("open");
+document.getElementById("gsStart").addEventListener("input",updateDuration);document.getElementById("gsEnd").addEventListener("input",updateDuration);
 document.getElementById("generalScheduleForm").onsubmit=e=>{
- e.preventDefault();
- const item={
-   id:"extra-"+Date.now(), source:document.getElementById("gsType").value,
-   title:document.getElementById("gsTitle").value.trim(),
-   date:document.getElementById("gsDate").value,
-   start:document.getElementById("gsStart").value,
-   end:document.getElementById("gsEnd").value,
-   location:document.getElementById("gsLocation").value.trim(),
-   person:document.getElementById("gsPerson").value.trim(),
-   status:document.getElementById("gsStatus").value,
-   note:document.getElementById("gsNote").value.trim()
- };
- const list=scheduleExtraData();list.push(item);storeSet("rekap-schedule-extra",list);
- document.getElementById("generalScheduleModal").classList.remove("open");
- refreshSchedule();refreshDashboard();toast("Jadwal berhasil ditambahkan.");
+ e.preventDefault();const start=document.getElementById("gsStart").value,end=document.getElementById("gsEnd").value;
+ if(start&&end&&start===end){toast("Jam mulai dan selesai tidak boleh sama.");return}
+ const editId=document.getElementById("gsEditId").value;
+ const item={id:editId||"extra-"+Date.now(),source:document.getElementById("gsType").value,title:document.getElementById("gsTitle").value.trim(),date:document.getElementById("gsDate").value,start,end,location:document.getElementById("gsLocation").value.trim(),person:document.getElementById("gsPerson").value.trim(),status:document.getElementById("gsStatus").value,priority:document.getElementById("gsPriority").value,note:document.getElementById("gsNote").value.trim()};
+ if(start&&end&&end<start&&!confirm("Jam selesai lebih awal dari jam mulai. Apakah kegiatan melewati tengah malam?"))return;
+ let list=scheduleExtraData();if(editId)list=list.map(x=>String(x.id)===String(editId)?{...x,...item}:x);else list.push(item);set("rekap-schedule-extra",list);
+ document.getElementById("generalScheduleModal").classList.remove("open");refreshSchedule();refreshDashboard();toast(editId?"Perubahan jadwal disimpan.":"Jadwal berhasil ditambahkan.");
 };
 document.getElementById("scheduleFilterType").onchange=refreshSchedule;
 document.getElementById("scheduleFilterDate").onchange=refreshSchedule;
@@ -895,42 +1295,43 @@ document.getElementById("clearScheduleFilter").onclick=()=>{
  document.getElementById("scheduleFilterDate").value="";
  refreshSchedule();
 };
+document.querySelectorAll("[data-schedule-view]").forEach(btn=>btn.onclick=()=>{document.querySelectorAll("[data-schedule-view]").forEach(x=>x.classList.toggle("active",x===btn));const week=btn.dataset.scheduleView==="week";document.getElementById("scheduleAgendaView").hidden=week;document.getElementById("scheduleWeekView").hidden=!week;if(week)renderScheduleWeek()});
+window.scheduleWeekOffset=0;document.getElementById("prevWeek").onclick=()=>{window.scheduleWeekOffset--;renderScheduleWeek()};document.getElementById("nextWeek").onclick=()=>{window.scheduleWeekOffset++;renderScheduleWeek()};document.getElementById("thisWeek").onclick=()=>{window.scheduleWeekOffset=0;renderScheduleWeek()};
+function updateScheduleClock(){const now=new Date();const clock=document.getElementById("scheduleLiveClock"),date=document.getElementById("scheduleLiveDate");if(clock)clock.textContent=now.toLocaleTimeString("id-ID",{hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false});if(date)date.textContent=now.toLocaleDateString("id-ID",{weekday:"long",day:"numeric",month:"long"})}
+updateScheduleClock();setInterval(updateScheduleClock,1000);
 
 document.querySelectorAll("[data-page]").forEach(x=>x.classList.toggle("active",x.dataset.page===p));
- const titles={dashboard:"Dashboard",rekap:"Rekap Mengajar",schedule:"Schedule",students:"Siswa & Sekolah",income:"Pemasukan",expense:"Pengeluaran",profile:"Profil Saya"};
+ const titles={dashboard:"Dashboard",rekap:"Rekap Mengajar",schedule:"Schedule",students:"Portofolio",income:"Pemasukan",expense:"Pengeluaran",profile:"Profil Saya"};
  document.getElementById("dashTitle").textContent=titles[p]||"Dashboard";
  if(p==="dashboard")refreshDashboard();
  if(p==="schedule")refreshSchedule();
  if(p==="income"||p==="expense")refreshFinance();
  if(p==="profile")refreshProfile();
- if(p==="students"&&typeof renderStudents==="function")renderStudents();
+ if(p==="students")renderPortfolio();
  document.getElementById("appSidebar").classList.remove("open");
 }
 
-function finance(type){
- if(!currentUser){toast("Silakan login terlebih dahulu.");return}
- const date=prompt("Tanggal (YYYY-MM-DD)",new Date().toISOString().slice(0,10));if(!date)return;
- const source=prompt(type==="income"?"Sumber pemasukan":"Keterangan pengeluaran");if(!source)return;
- const amount=Number(prompt("Nominal","0"));if(!amount)return;
- const category=prompt("Kategori",type==="income"?"Mengajar":"Operasional")||"Lainnya";
- const p=type==="income"?"rekap-income":"rekap-expense";const arr=get(p);arr.push({date,source,amount,category});set(p,arr);
- refreshFinance();refreshDashboard();toast(type==="income"?"Pemasukan disimpan.":"Pengeluaran disimpan.");
-}
 
 document.querySelectorAll("[data-page]").forEach(x=>x.addEventListener("click",()=>page(x.dataset.page)));
 document.getElementById("mobileMenu").onclick=()=>document.getElementById("appSidebar").classList.toggle("open");
 document.getElementById("dashLogout").onclick=()=>document.getElementById("logoutBtn")?.click();
-document.getElementById("newIncome").onclick=()=>finance("income");document.getElementById("newExpense").onclick=()=>finance("expense");
-document.getElementById("saveProfile").onclick=()=>{
- set("rekap-profile",[{
- fullName:document.getElementById("pFullName").value.trim(),phone:document.getElementById("pPhone").value.trim(),
- address:document.getElementById("pAddress").value.trim(),job:document.getElementById("pJob").value.trim(),bio:document.getElementById("pBio").value.trim()
- }]);refreshProfile();toast("Profil disimpan.");
-};
+document.getElementById("newIncome").onclick=()=>openFinanceForm("income");document.getElementById("newExpense").onclick=()=>openFinanceForm("expense");
+document.getElementById("financeForm").addEventListener("submit",submitFinanceForm);
+document.getElementById("closeFinanceModal").onclick=()=>document.getElementById("financeModal").classList.remove("open");document.getElementById("cancelFinance").onclick=()=>document.getElementById("financeModal").classList.remove("open");
+document.getElementById("incomeSearch").addEventListener("input",()=>renderFinanceList("income",get("rekap-income")));document.getElementById("incomeMonthFilter").addEventListener("change",()=>renderFinanceList("income",get("rekap-income")));document.getElementById("incomeCategoryFilter").addEventListener("change",()=>renderFinanceList("income",get("rekap-income")));
+document.getElementById("expenseSearch").addEventListener("input",()=>renderFinanceList("expense",get("rekap-expense")));document.getElementById("expenseMonthFilter").addEventListener("change",()=>renderFinanceList("expense",get("rekap-expense")));document.getElementById("expenseCategoryFilter").addEventListener("change",()=>renderFinanceList("expense",get("rekap-expense")));
+function saveProfileData(){
+ const old=get("rekap-profile")[0]||{};const profile={...old,fullName:profileText("pFullName"),phone:profileText("pPhone"),address:profileText("pAddress"),job:profileText("pJob"),bio:profileText("pBio"),profileEmail:profileText("pProfileEmail"),website:profileText("pWebsite"),linkedin:profileText("pLinkedin"),education:profileText("pEducation"),experience:profileText("pExperience"),skills:profileText("pSkills"),achievements:profileText("pAchievements"),certificates:profileText("pCertificates"),languages:profileText("pLanguages"),photo:profilePendingPhoto,updatedAt:new Date().toISOString()};
+ try{set("rekap-profile",[profile]);updateProfilePreview();document.getElementById("profileSaveStatus").textContent="✓ Profil berhasil disimpan";toast("Profil CV digital berhasil disimpan.")}catch(err){toast("Penyimpanan gagal. Foto mungkin terlalu besar, coba foto lain.")}
+}
+document.getElementById("saveProfile").onclick=saveProfileData;document.getElementById("saveProfileTop").onclick=saveProfileData;
+document.getElementById("pPhotoInput").addEventListener("change",async e=>{const file=e.target.files?.[0];if(!file)return;try{if(file.size>12*1024*1024)throw new Error("Pilih foto berukuran di bawah 12 MB.");profilePendingPhoto=await compressPortfolioImage(file);updateProfilePreview();toast("Foto profil siap digunakan.")}catch(err){toast(err.message||"Foto gagal diproses.");e.target.value=""}});
+document.getElementById("removeProfilePhoto").onclick=()=>{profilePendingPhoto="";document.getElementById("pPhotoInput").value="";updateProfilePreview();};
+["pFullName","pPhone","pAddress","pJob","pBio","pProfileEmail","pWebsite","pLinkedin","pEducation","pExperience","pSkills","pAchievements","pCertificates","pLanguages"].forEach(id=>document.getElementById(id).addEventListener("input",updateProfilePreview));
 
 const oldRender=window.render;
 window.render=function(){if(typeof oldRender==="function")oldRender();refreshDashboard();refreshSchedule()};
-window.addEventListener("load",()=>{refreshDashboard();refreshSchedule();refreshFinance();refreshProfile();});
+window.addEventListener("load",()=>{refreshDashboard();refreshSchedule();refreshFinance();refreshProfile();renderPortfolio();if(typeof renderMonthlyIncome==="function")renderMonthlyIncome();});
 })();
 </script>
 </body>
